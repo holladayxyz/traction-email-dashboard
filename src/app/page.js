@@ -591,6 +591,7 @@ export default function PasswordGate() {
   const [unlocked, setUnlocked] = useState(false);
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -616,20 +617,35 @@ export default function PasswordGate() {
         <div style={{ color: BRAND.white, fontSize: 20, fontWeight: 700, marginBottom: 24 }}>
           Email Traction Dashboard
         </div>
-        <input
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter password"
-          autoFocus
-          style={{
-            width: "100%", padding: "12px 16px", fontSize: 16,
-            border: error ? `2px solid ${BRAND.red}` : "2px solid #333",
-            borderRadius: 8, background: "#2A2A2A", color: BRAND.white,
-            outline: "none", boxSizing: "border-box",
-            transition: "border-color 0.2s",
-          }}
-        />
+        <div style={{ position: "relative", width: "100%" }}>
+          <input
+            type={showPassword ? "text" : "password"}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter password"
+            autoFocus
+            style={{
+              width: "100%", padding: "12px 42px 12px 16px", fontSize: 16,
+              border: error ? `2px solid ${BRAND.red}` : "2px solid #333",
+              borderRadius: 8, background: "#2A2A2A", color: BRAND.white,
+              outline: "none", boxSizing: "border-box",
+              transition: "border-color 0.2s",
+            }}
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            style={{
+              position: "absolute", right: 12, top: "50%", transform: "translateY(-50%)",
+              background: "none", border: "none", cursor: "pointer", padding: 0,
+              color: "#888", fontSize: 18, lineHeight: 1,
+            }}
+            tabIndex={-1}
+            aria-label={showPassword ? "Hide password" : "Show password"}
+          >
+            {showPassword ? "🙈" : "👁"}
+          </button>
+        </div>
         <button
           type="submit"
           style={{
