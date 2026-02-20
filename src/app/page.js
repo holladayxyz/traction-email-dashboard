@@ -184,6 +184,131 @@ const WEEKS = {
       ],
     },
   },
+  "week-6": {
+    label: "Week 6",
+    dateRange: "Feb 12 – Feb 19",
+    updatedDate: "Feb 19, 2026",
+    campaigns: [
+      {
+        name: "Why You Keep Getting Caught Hungry",
+        sendDate: "Feb 18",
+        recipients: 97423,
+        delivered: 96606,
+        openRate: 0.21921,
+        clickRate: 0.00211,
+        cto: 0.00963,
+        conversions: 15,
+        revenue: 761.01,
+        bounceRate: 0.00839,
+        unsubRate: 0.00102,
+        rpr: 0.01,
+        aov: 50.73,
+        tag: { label: "Click Gap", color: BRAND.amber },
+        insight: "A 21.9% open rate on 97K recipients shows solid deliverability and subject line pull, but a 0.96% CTO is a red flag — readers are opening and stopping cold. With only 15 conversions and $761 in revenue on the full list, the body copy or CTA is failing to convert curiosity into action. Test a more direct offer-forward version of this content-driven angle.",
+      },
+    ],
+    insights: [
+      {
+        icon: "⚠️",
+        title: "Click Gap Killing Revenue on Broadcast",
+        body: "The only campaign this week — 'Why You Keep Getting Caught Hungry' — reached 97K inboxes with a 21.9% open rate but generated a 0.96% click-to-open rate and just $761 in revenue. That's $0.01 RPR on a full-list send. The content hook is working at the subject line level but the email body isn't creating urgency or a clear CTA to drive clicks.",
+        borderColor: BRAND.amber,
+      },
+      {
+        icon: "✅",
+        title: "SPIN Welcome Series Driving Real Revenue",
+        body: "The SPIN Welcome Series Email 1 converted 6 orders for $310.39 ($0.36 RPR) this week across 876 recipients — the highest RPR of any email in the account. Email 2 added another 2 conversions and $177.38. This flow is your best-performing revenue engine per contact and deserves continued list growth investment.",
+        borderColor: BRAND.green,
+      },
+      {
+        icon: "📉",
+        title: "Abandoned Checkout Flow Volume Is Critically Low",
+        body: "The Abandoned Checkout flow triggered for only 17 and 11 recipients respectively across both emails this week, with zero conversions and zero revenue. Despite a strong open rate (35–36%), there are zero clicks or recoveries. At this volume the flow hasn't been meaningfully tested — diagnose why so few abandons are entering the flow and confirm Shopify checkout tracking is firing correctly.",
+        borderColor: BRAND.red,
+      },
+      {
+        icon: "📉",
+        title: "Post-Purchase Email Open Rate at 7.9% Is a Warning Sign",
+        body: "The Post-Purchase Bounce Back Email 1 saw only a 7.9% open rate on 140 recipients with zero clicks, zero conversions, and zero revenue. This is well below expected post-purchase benchmarks (typically 40–60% for transactional-adjacent emails). Check send timing, from-name, and whether this is going to suppressed profiles or landing in promotions tabs.",
+        borderColor: BRAND.red,
+      },
+      {
+        icon: "💡",
+        title: "Welcome Series Click Rates Need Activation Work",
+        body: "Across the [XYZ] Welcome Series Flow, three of four emails recorded 0.00% click rates despite open rates of 17–32%. The coupon email (Email 2) had a 31% open rate with zero clicks — if the coupon isn't hyperlinked correctly or the CTA button is broken, that's leaving direct revenue on the table. Audit all CTA links in the Welcome Series this week.",
+        borderColor: BRAND.blue,
+      },
+    ],
+    flows: [
+      {
+        name: "[XYZ] Welcome Series Flow",
+        id: "WUK7FY",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Added to List",
+        launchDate: "Jan 29",
+        messages: [
+          { label: "Email 1 — Welcome Series", recipients: 305, delivered: 298, openRate: 0.3255, clickRate: 0.03691, convRate: 0.01007, conversions: 3, revenue: 97.67, bounceRate: 0.02295, unsubRate: 0 },
+          { label: "Email 2 — Welcome (Coupon)", recipients: 318, delivered: 316, openRate: 0.31013, clickRate: 0, convRate: 0.00316, conversions: 1, revenue: 54.51, bounceRate: 0.00629, unsubRate: 0 },
+          { label: "Email 3 — Beefcake Products", recipients: 277, delivered: 275, openRate: 0.32364, clickRate: 0, convRate: 0.00364, conversions: 1, revenue: 22.99, bounceRate: 0.00722, unsubRate: 0.00727 },
+          { label: "Email 4 — Welcome Series", recipients: 210, delivered: 210, openRate: 0.17143, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "[XYZ] SPIN Welcome Series",
+        id: "RCEqqK",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (SPIN Opt-In)",
+        launchDate: "Feb 04",
+        messages: [
+          { label: "Email 1 — Welcome Series", recipients: 876, delivered: 855, openRate: 0.26784, clickRate: 0.00819, convRate: 0.00702, conversions: 6, revenue: 310.39, bounceRate: 0.02397, unsubRate: 0.01053 },
+          { label: "Email 2 — Welcome Series", recipients: 880, delivered: 874, openRate: 0.19222, clickRate: 0.00458, convRate: 0.00229, conversions: 2, revenue: 177.38, bounceRate: 0.00682, unsubRate: 0.00343 },
+          { label: "Email 3 — Welcome Series", recipients: 800, delivered: 792, openRate: 0.1654, clickRate: 0.00379, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.01, unsubRate: 0.00126 },
+          { label: "Email 4 — Welcome Series", recipients: 591, delivered: 585, openRate: 0.15556, clickRate: 0.01026, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.01015, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "[XYZ] Abandoned Checkout Flow",
+        id: "Tpym9d",
+        status: "LIVE",
+        statusColor: BRAND.red,
+        trigger: "Metric (Checkout Started)",
+        launchDate: "Jan 29",
+        messages: [
+          { label: "Email 1 — Abandoned Checkout", recipients: 17, delivered: 17, openRate: 0.35294, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+          { label: "Email 2 — Abandoned Checkout", recipients: 11, delivered: 11, openRate: 0.36364, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "[XYZ] Post-Purchase Bounce Back Flow",
+        id: "Vf5YHp",
+        status: "LIVE",
+        statusColor: BRAND.amber,
+        trigger: "Metric (Placed Order)",
+        launchDate: "Jan 29",
+        messages: [
+          { label: "Email 1 — Thank You", recipients: 140, delivered: 140, openRate: 0.07857, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+        ],
+      },
+    ],
+    checkoutDiagnostic: null,
+    roadmap: {
+      now: [
+        { label: "Fix Welcome Series CTAs", desc: "Audit and fix all broken or missing CTA links across the 4-email Welcome Series — three emails showed 0% click rates despite strong open rates.", icon: "🔗" },
+        { label: "Diagnose Abandoned Checkout Volume", desc: "Investigate why only 17 checkouts entered the AC flow this week. Confirm Shopify checkout tracking pixel is firing and flow trigger conditions are correct.", icon: "🔍" },
+        { label: "Post-Purchase Email Audit", desc: "7.9% open rate on Post-Purchase Email 1 is below baseline. Check send timing, from-name, and whether suppression or deliverability is filtering recipients.", icon: "📬" },
+      ],
+      next: [
+        { label: "Campaign CTA Optimization Test", desc: "A/B test a more direct, offer-forward version of the content-driven campaign format. The 'Caught Hungry' angle got opens but failed to convert — test a CTA-first layout.", icon: "🧪" },
+        { label: "SPIN Welcome Series Conversion Funnel", desc: "Emails 3 and 4 of the SPIN series show declining open rates and zero conversions. Add a conversion CTA or offer trigger in Email 3 before engagement drops off.", icon: "📈" },
+      ],
+      later: [
+        { label: "Abandoned Checkout Email 3", desc: "Once volume and conversion tracking are confirmed healthy, add a third AC email with a stronger urgency angle or discount incentive.", icon: "🛒" },
+        { label: "Post-Purchase Upsell Sequence", desc: "Build a structured post-purchase upsell flow beyond the single Thank You email — a 2nd email with complementary product recommendations and social proof.", icon: "🥩" },
+      ],
+    },
+  },
 };
 
 const weekKeys = Object.keys(WEEKS);
