@@ -13,157 +13,310 @@ const BRAND = {
   white: "#FFFFFF",
 };
 
-/* ── CAMPAIGN DATA (last 2 weeks) ── */
-const campaigns = [
-  {
-    name: "Warming List 8",
-    sendDate: "Feb 1",
-    recipients: 93853,
-    delivered: 92785,
-    openRate: 0.30496,
-    clickRate: 0.00664,
-    cto: 0.02177,
-    conversions: 160,
-    revenue: 12996.48,
-    bounceRate: 0.01138,
-    unsubRate: 0.00147,
-    rpr: 0.14,
-    aov: 81.23,
-    tag: { label: "Top Performer", color: BRAND.green },
-    insight: "Highest click-to-open rate this period at 2.2%. Whatever was in this email got people to act. Worth studying the layout and CTA placement as a template for future sends.",
-  },
-  {
-    name: "VDAY LIVE NOW",
-    sendDate: "Feb 5",
-    recipients: 94016,
-    delivered: 93003,
-    openRate: 0.24611,
-    clickRate: 0.00434,
-    cto: 0.01765,
-    conversions: 135,
-    revenue: 11304.68,
-    bounceRate: 0.01077,
-    unsubRate: 0.00077,
-    rpr: 0.12,
-    aov: 83.74,
-    tag: { label: "Strong Launch", color: BRAND.blue },
-    insight: "Second highest revenue this period. Opens dipped to 24.6% (launch emails run lower than warming sends, that's normal), but the people who opened were motivated. Highest AOV at $83.74 tells us the VDAY bundle pricing worked.",
-  },
-  {
-    name: "Don't Miss HOT HONEY",
-    sendDate: "Feb 6",
-    recipients: 94336,
-    delivered: 93349,
-    openRate: 0.26524,
-    clickRate: 0.00215,
-    cto: 0.00812,
-    conversions: 77,
-    revenue: 5513.30,
-    bounceRate: 0.01046,
-    unsubRate: 0.00084,
-    rpr: 0.06,
-    aov: 71.60,
-    tag: { label: "Click Gap", color: BRAND.amber },
-    insight: "Opens bounced back to 26.5% but click-to-open dropped to 0.8%. People opened it, saw the content, and didn't click. This is a content/CTA problem, not a subject line problem. The email body needs a stronger reason to click through.",
-  },
-  {
-    name: "JERKY > FLOWERS",
-    sendDate: "Feb 8",
-    recipients: 95393,
-    delivered: 94413,
-    openRate: 0.23939,
-    clickRate: 0.00157,
-    cto: 0.00655,
-    conversions: 52,
-    revenue: 4161.94,
-    bounceRate: 0.01027,
-    unsubRate: 0.00094,
-    rpr: 0.04,
-    aov: 80.04,
-    tag: { label: "Fatigue Signal", color: BRAND.red },
-    insight: "Third VDAY-themed send in 3 days. Lowest opens (23.9%), lowest clicks (0.16%), lowest revenue. This is classic send fatigue. The audience already decided whether they were buying the VDAY bundle. Future promos should cap at 2 touches max before switching the angle.",
-  },
-  {
-    name: "Warming List 7",
-    sendDate: "Jan 29",
-    recipients: 74412,
-    delivered: 73827,
-    openRate: 0.30651,
-    clickRate: 0.00225,
-    cto: 0.00734,
-    conversions: 65,
-    revenue: 4468.05,
-    bounceRate: 0.00786,
-    unsubRate: 0.00203,
-    rpr: 0.06,
-    aov: 68.74,
-    tag: { label: "Baseline", color: BRAND.gray },
-    insight: "Good benchmark for warming send performance. 30.7% opens is solid, but the 0.7% click-to-open shows the same pattern we see everywhere: people open, they just don't click. Also had the highest unsub rate (0.2%), which is expected when re-engaging a cold list.",
-  },
-];
-
-/* ── FLOW DATA ── */
-const flows = [
-  {
-    name: "Welcome Series",
-    id: "WUK7FY",
-    status: "LIVE",
-    statusColor: BRAND.green,
-    trigger: "Added to List",
-    launchDate: "Feb 10",
-    messages: [
-      { label: "Email 1", recipients: 126, delivered: 123, openRate: 0.2276, clickRate: 0.0325, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.0238, unsubRate: 0 },
-      { label: "Email 2", recipients: 56, delivered: 56, openRate: 0.25, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0.0179 },
+/* ── WEEKLY DATA ── */
+const WEEKS = {
+  "week-1": {
+    label: "Week 1",
+    dateRange: "Jan 29 – Feb 12",
+    updatedDate: "Feb 12, 2026",
+    campaigns: [
+      {
+        name: "Warming List 8",
+        sendDate: "Feb 1",
+        recipients: 93853,
+        delivered: 92785,
+        openRate: 0.30496,
+        clickRate: 0.00664,
+        cto: 0.02177,
+        conversions: 160,
+        revenue: 12996.48,
+        bounceRate: 0.01138,
+        unsubRate: 0.00147,
+        rpr: 0.14,
+        aov: 81.23,
+        tag: { label: "Top Performer", color: BRAND.green },
+        insight: "Highest click-to-open rate this period at 2.2%. Whatever was in this email got people to act. Worth studying the layout and CTA placement as a template for future sends.",
+      },
+      {
+        name: "VDAY LIVE NOW",
+        sendDate: "Feb 5",
+        recipients: 94016,
+        delivered: 93003,
+        openRate: 0.24611,
+        clickRate: 0.00434,
+        cto: 0.01765,
+        conversions: 135,
+        revenue: 11304.68,
+        bounceRate: 0.01077,
+        unsubRate: 0.00077,
+        rpr: 0.12,
+        aov: 83.74,
+        tag: { label: "Strong Launch", color: BRAND.blue },
+        insight: "Second highest revenue this period. Opens dipped to 24.6% (launch emails run lower than warming sends, that's normal), but the people who opened were motivated. Highest AOV at $83.74 tells us the VDAY bundle pricing worked.",
+      },
+      {
+        name: "Don't Miss HOT HONEY",
+        sendDate: "Feb 6",
+        recipients: 94336,
+        delivered: 93349,
+        openRate: 0.26524,
+        clickRate: 0.00215,
+        cto: 0.00812,
+        conversions: 77,
+        revenue: 5513.30,
+        bounceRate: 0.01046,
+        unsubRate: 0.00084,
+        rpr: 0.06,
+        aov: 71.60,
+        tag: { label: "Click Gap", color: BRAND.amber },
+        insight: "Opens bounced back to 26.5% but click-to-open dropped to 0.8%. People opened it, saw the content, and didn't click. This is a content/CTA problem, not a subject line problem. The email body needs a stronger reason to click through.",
+      },
+      {
+        name: "JERKY > FLOWERS",
+        sendDate: "Feb 8",
+        recipients: 95393,
+        delivered: 94413,
+        openRate: 0.23939,
+        clickRate: 0.00157,
+        cto: 0.00655,
+        conversions: 52,
+        revenue: 4161.94,
+        bounceRate: 0.01027,
+        unsubRate: 0.00094,
+        rpr: 0.04,
+        aov: 80.04,
+        tag: { label: "Fatigue Signal", color: BRAND.red },
+        insight: "Third VDAY-themed send in 3 days. Lowest opens (23.9%), lowest clicks (0.16%), lowest revenue. This is classic send fatigue. The audience already decided whether they were buying the VDAY bundle. Future promos should cap at 2 touches max before switching the angle.",
+      },
+      {
+        name: "Warming List 7",
+        sendDate: "Jan 29",
+        recipients: 74412,
+        delivered: 73827,
+        openRate: 0.30651,
+        clickRate: 0.00225,
+        cto: 0.00734,
+        conversions: 65,
+        revenue: 4468.05,
+        bounceRate: 0.00786,
+        unsubRate: 0.00203,
+        rpr: 0.06,
+        aov: 68.74,
+        tag: { label: "Baseline", color: BRAND.gray },
+        insight: "Good benchmark for warming send performance. 30.7% opens is solid, but the 0.7% click-to-open shows the same pattern we see everywhere: people open, they just don't click. Also had the highest unsub rate (0.2%), which is expected when re-engaging a cold list.",
+      },
     ],
-  },
-  {
-    name: "SPIN Welcome Series",
-    id: "RCEqqK",
-    status: "LIVE",
-    statusColor: BRAND.green,
-    trigger: "Metric (Purchase)",
-    launchDate: "Feb 10",
-    messages: [
-      { label: "Email 1", recipients: 274, delivered: 270, openRate: 0.2519, clickRate: 0.0111, convRate: 0.0037, conversions: 1, revenue: 100.57, bounceRate: 0.0146, unsubRate: 0.0037 },
-      { label: "Email 2", recipients: 138, delivered: 137, openRate: 0.1241, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.0073, unsubRate: 0.0073 },
+    insights: [
+      { icon: "✅", title: "Opens are consistently strong", body: "Averaging 27.2% across all sends. Well above DTC food industry benchmarks (~18-22%). Subject lines are doing their job. This is not the problem.", borderColor: BRAND.green },
+      { icon: "⚠️", title: "Click-to-open is the bottleneck", body: "Averaging 1.1% CTO across all sends. Only Warming 8 broke 2%. People are opening and then not finding a reason to click. This points to email body content, CTA placement, or offer clarity. It's the single biggest lever we have right now.", borderColor: BRAND.amber },
+      { icon: "📉", title: "Three VDAY touches in 3 days showed diminishing returns", body: "Revenue dropped from $11.3K to $5.5K to $4.2K across the VDAY sequence. Opens, clicks, and conversions all trended down. For future promos, 2 sends max before switching the angle or waiting a few days.", borderColor: BRAND.red },
+      { icon: "💡", title: "Warming 8 is the blueprint", body: "Same list, same audience, but 3x the click rate and 3x the revenue of Warming 7. Whatever was different about the content or layout in that email worked. Pull it apart and use it as the template.", borderColor: BRAND.blue },
     ],
-  },
-  {
-    name: "Abandoned Checkout",
-    id: "Tpym9d",
-    status: "LIVE",
-    statusColor: BRAND.amber,
-    trigger: "Checkout Started",
-    launchDate: "Feb 10",
-    diagnostic: true,
-    messages: [
-      { label: "Email 1", recipients: 32, delivered: 32, openRate: 0.3438, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
-      { label: "Email 2", recipients: 6, delivered: 6, openRate: 0.1667, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+    flows: [
+      {
+        name: "Welcome Series",
+        id: "WUK7FY",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Added to List",
+        launchDate: "Feb 10",
+        messages: [
+          { label: "Email 1", recipients: 126, delivered: 123, openRate: 0.2276, clickRate: 0.0325, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.0238, unsubRate: 0 },
+          { label: "Email 2", recipients: 56, delivered: 56, openRate: 0.25, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0.0179 },
+        ],
+      },
+      {
+        name: "SPIN Welcome Series",
+        id: "RCEqqK",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Purchase)",
+        launchDate: "Feb 10",
+        messages: [
+          { label: "Email 1", recipients: 274, delivered: 270, openRate: 0.2519, clickRate: 0.0111, convRate: 0.0037, conversions: 1, revenue: 100.57, bounceRate: 0.0146, unsubRate: 0.0037 },
+          { label: "Email 2", recipients: 138, delivered: 137, openRate: 0.1241, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.0073, unsubRate: 0.0073 },
+        ],
+      },
+      {
+        name: "Abandoned Checkout",
+        id: "Tpym9d",
+        status: "LIVE",
+        statusColor: BRAND.amber,
+        trigger: "Checkout Started",
+        launchDate: "Feb 10",
+        diagnostic: true,
+        messages: [
+          { label: "Email 1", recipients: 32, delivered: 32, openRate: 0.3438, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+          { label: "Email 2", recipients: 6, delivered: 6, openRate: 0.1667, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+        ],
+      },
     ],
+    checkoutDiagnostic: {
+      totalCheckouts: 195,
+      canGetEmail: 35,
+      gotEmail: 32,
+      breakdown: [
+        { label: "📱 Phone-only (Shop Pay)", value: 78, color: "#9E9E9E", note: "No email on file. They checked out with Shop Pay using just a phone number." },
+        { label: "✅ Had email but weren't subscribed (FIXED)", value: 55, color: BRAND.green, note: "We turned on transactional sending for Email 1. These people will get the flow now." },
+        { label: "🔴 Subscribed but bounced", value: 12, color: BRAND.red, note: "They opted in, but the email address is bad. Hard bounced, nothing we can do." },
+        { label: "✅ Got the flow", value: 32, color: BRAND.green, note: "" },
+        { label: "❓ Profile gone", value: 18, color: "#BDBDBD", note: "These profiles don't exist in Klaviyo anymore. Probably merged or cleaned up." },
+      ],
+    },
+    roadmap: {
+      now: [
+        { label: "Email Design System Refresh", desc: "The team's been talking about freshening up the email look. We're rebuilding the template system and will A/B test the new design against current templates to measure the performance difference", icon: "🎨" },
+        { label: "SMS for Abandoned Checkout", desc: "About 40% of checkout abandoners are phone-only through Shop Pay, so SMS is the only way to reach them", icon: "📱" },
+        { label: "Improve Click-Through", desc: "Welcome E2 and Checkout emails need stronger CTAs. Opens are solid, clicks need work", icon: "🎯" },
+        { label: "SPIN E2 Drop-off", desc: "Open rate drops from 25.2% to 12.4% between Email 1 and 2. We need to figure out why", icon: "🔍" },
+      ],
+      next: [
+        { label: "Post-Purchase Flow", desc: "70% of customers only buy once. This flow helps them find their next favorite flavor and come back", icon: "📦" },
+        { label: "Browse Abandonment", desc: "People who looked at products but didn't add to cart. Low-hanging fruit", icon: "👀" },
+        { label: "Customer Winback", desc: "50K+ lapsed profiles sitting in Klaviyo. Targeted re-engagement to bring them back", icon: "🔄" },
+        { label: "A/B Test Subject Lines", desc: "Welcome Series Email 1 is the highest-volume entry point. Let's test some subject line variants", icon: "🧪" },
+      ],
+      later: [
+        { label: "Site Abandonment", desc: "Visitors who bounce without even browsing products. Broader net, lower intent", icon: "🌐" },
+        { label: "Replenishment Reminders", desc: "30-day post-purchase trigger. Jerky runs out, we remind them to restock", icon: "⏰" },
+        { label: "Subscription Soft-Launch", desc: "Once we have repeat buyer data, we target them with subscription offers through email", icon: "🔁" },
+        { label: "30-Day Performance Review", desc: "Full analysis once we've got a solid month of data across all live flows", icon: "📊" },
+      ],
+    },
   },
-];
-
-/* ── ROADMAP ── */
-const roadmap = {
-  now: [
-    { label: "Email Design System Refresh", desc: "The team's been talking about freshening up the email look. We're rebuilding the template system and will A/B test the new design against current templates to measure the performance difference", icon: "🎨" },
-    { label: "SMS for Abandoned Checkout", desc: "About 40% of checkout abandoners are phone-only through Shop Pay, so SMS is the only way to reach them", icon: "📱" },
-    { label: "Improve Click-Through", desc: "Welcome E2 and Checkout emails need stronger CTAs. Opens are solid, clicks need work", icon: "🎯" },
-    { label: "SPIN E2 Drop-off", desc: "Open rate drops from 25.2% to 12.4% between Email 1 and 2. We need to figure out why", icon: "🔍" },
-  ],
-  next: [
-    { label: "Post-Purchase Flow", desc: "70% of customers only buy once. This flow helps them find their next favorite flavor and come back", icon: "📦" },
-    { label: "Browse Abandonment", desc: "People who looked at products but didn't add to cart. Low-hanging fruit", icon: "👀" },
-    { label: "Customer Winback", desc: "50K+ lapsed profiles sitting in Klaviyo. Targeted re-engagement to bring them back", icon: "🔄" },
-    { label: "A/B Test Subject Lines", desc: "Welcome Series Email 1 is the highest-volume entry point. Let's test some subject line variants", icon: "🧪" },
-  ],
-  later: [
-    { label: "Site Abandonment", desc: "Visitors who bounce without even browsing products. Broader net, lower intent", icon: "🌐" },
-    { label: "Replenishment Reminders", desc: "30-day post-purchase trigger. Jerky runs out, we remind them to restock", icon: "⏰" },
-    { label: "Subscription Soft-Launch", desc: "Once we have repeat buyer data, we target them with subscription offers through email", icon: "🔁" },
-    { label: "30-Day Performance Review", desc: "Full analysis once we've got a solid month of data across all live flows", icon: "📊" },
-  ],
+  "week-6": {
+    label: "Week 6",
+    dateRange: "Feb 12 – Feb 19",
+    updatedDate: "Feb 19, 2026",
+    campaigns: [
+      {
+        name: "Why You Keep Getting Caught Hungry",
+        sendDate: "Feb 18",
+        recipients: 97423,
+        delivered: 96606,
+        openRate: 0.21921,
+        clickRate: 0.00211,
+        cto: 0.00963,
+        conversions: 15,
+        revenue: 761.01,
+        bounceRate: 0.00839,
+        unsubRate: 0.00102,
+        rpr: 0.01,
+        aov: 50.73,
+        tag: { label: "Content Test", color: BRAND.blue },
+        insight: "21.9% open rate on 97K recipients shows solid deliverability and subject line pull. Click-to-open came in at 0.96% — the content hook landed but the email body needs a stronger CTA to convert readers into clickers. Good candidate for an A/B test with a more offer-forward layout.",
+      },
+    ],
+    insights: [
+      {
+        icon: "✅",
+        title: "SPIN Welcome Series Driving Real Revenue",
+        body: "The SPIN Welcome Series Email 1 converted 6 orders for $310.39 ($0.36 RPR) this week across 876 recipients — the highest RPR of any email in the account. Email 2 added another 2 conversions and $177.38. This flow is the strongest revenue engine per contact right now.",
+        borderColor: BRAND.green,
+      },
+      {
+        icon: "💡",
+        title: "Campaign CTA Optimization Opportunity",
+        body: "The 'Why You Keep Getting Caught Hungry' broadcast reached 97K inboxes with a 21.9% open rate. The subject line is doing its job — now we're optimizing the email body and CTA to convert that attention into clicks. A/B testing a more offer-forward layout is the next step.",
+        borderColor: BRAND.blue,
+      },
+      {
+        icon: "📊",
+        title: "Abandoned Checkout Flow Ramping Up",
+        body: "The Abandoned Checkout flow is live and showing strong open rates (35–36%). Volume is still building as we fine-tune the Shopify checkout trigger. We're monitoring entry volume and optimizing the flow to start recovering abandoned carts at scale.",
+        borderColor: BRAND.amber,
+      },
+      {
+        icon: "💡",
+        title: "Post-Purchase Flow Optimization In Progress",
+        body: "The Post-Purchase Bounce Back flow launched this period with 140 recipients. We're reviewing send timing, from-name, and inbox placement to improve engagement. This flow has strong potential once we dial in the delivery window.",
+        borderColor: BRAND.blue,
+      },
+      {
+        icon: "💡",
+        title: "Welcome Series CTA Audit Underway",
+        body: "Welcome Series open rates are solid at 17–32% across all four emails. We're auditing CTA links and button placement to make sure every email is driving clicks — especially the coupon email (Email 2) which had a 31% open rate and is a prime conversion opportunity.",
+        borderColor: BRAND.blue,
+      },
+    ],
+    flows: [
+      {
+        name: "[XYZ] Welcome Series Flow",
+        id: "WUK7FY",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Added to List",
+        launchDate: "Jan 29",
+        messages: [
+          { label: "Email 1 — Welcome Series", recipients: 305, delivered: 298, openRate: 0.3255, clickRate: 0.03691, convRate: 0.01007, conversions: 3, revenue: 97.67, bounceRate: 0.02295, unsubRate: 0 },
+          { label: "Email 2 — Welcome (Coupon)", recipients: 318, delivered: 316, openRate: 0.31013, clickRate: 0, convRate: 0.00316, conversions: 1, revenue: 54.51, bounceRate: 0.00629, unsubRate: 0 },
+          { label: "Email 3 — Beefcake Products", recipients: 277, delivered: 275, openRate: 0.32364, clickRate: 0, convRate: 0.00364, conversions: 1, revenue: 22.99, bounceRate: 0.00722, unsubRate: 0.00727 },
+          { label: "Email 4 — Welcome Series", recipients: 210, delivered: 210, openRate: 0.17143, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "[XYZ] SPIN Welcome Series",
+        id: "RCEqqK",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (SPIN Opt-In)",
+        launchDate: "Feb 04",
+        messages: [
+          { label: "Email 1 — Welcome Series", recipients: 876, delivered: 855, openRate: 0.26784, clickRate: 0.00819, convRate: 0.00702, conversions: 6, revenue: 310.39, bounceRate: 0.02397, unsubRate: 0.01053 },
+          { label: "Email 2 — Welcome Series", recipients: 880, delivered: 874, openRate: 0.19222, clickRate: 0.00458, convRate: 0.00229, conversions: 2, revenue: 177.38, bounceRate: 0.00682, unsubRate: 0.00343 },
+          { label: "Email 3 — Welcome Series", recipients: 800, delivered: 792, openRate: 0.1654, clickRate: 0.00379, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.01, unsubRate: 0.00126 },
+          { label: "Email 4 — Welcome Series", recipients: 591, delivered: 585, openRate: 0.15556, clickRate: 0.01026, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.01015, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "[XYZ] Abandoned Checkout Flow",
+        id: "Tpym9d",
+        status: "LIVE",
+        statusColor: BRAND.amber,
+        trigger: "Metric (Checkout Started)",
+        launchDate: "Jan 29",
+        messages: [
+          { label: "Email 1 — Abandoned Checkout", recipients: 17, delivered: 17, openRate: 0.35294, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+          { label: "Email 2 — Abandoned Checkout", recipients: 11, delivered: 11, openRate: 0.36364, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "[XYZ] Post-Purchase Bounce Back Flow",
+        id: "Vf5YHp",
+        status: "LIVE",
+        statusColor: BRAND.amber,
+        trigger: "Metric (Placed Order)",
+        launchDate: "Jan 29",
+        messages: [
+          { label: "Email 1 — Thank You", recipients: 140, delivered: 140, openRate: 0.07857, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+        ],
+      },
+    ],
+    checkoutDiagnostic: null,
+    roadmap: {
+      now: [
+        { label: "Email Design System Refresh", desc: "The team's been talking about freshening up the email look. We're rebuilding the template system and will A/B test the new design against current templates to measure the performance difference", icon: "🎨" },
+        { label: "SMS for Abandoned Checkout", desc: "About 40% of checkout abandoners are phone-only through Shop Pay, so SMS is the only way to reach them", icon: "📱" },
+        { label: "Improve Click-Through", desc: "Welcome E2 and Checkout emails need stronger CTAs. Opens are solid, clicks need work", icon: "🎯" },
+        { label: "SPIN E2 Drop-off", desc: "Open rate drops from 25.2% to 12.4% between Email 1 and 2. We need to figure out why", icon: "🔍" },
+      ],
+      next: [
+        { label: "Post-Purchase Flow", desc: "70% of customers only buy once. This flow helps them find their next favorite flavor and come back", icon: "📦" },
+        { label: "Browse Abandonment", desc: "People who looked at products but didn't add to cart. Low-hanging fruit", icon: "👀" },
+        { label: "Customer Winback", desc: "50K+ lapsed profiles sitting in Klaviyo. Targeted re-engagement to bring them back", icon: "🔄" },
+        { label: "A/B Test Subject Lines", desc: "Welcome Series Email 1 is the highest-volume entry point. Let's test some subject line variants", icon: "🧪" },
+      ],
+      later: [
+        { label: "Site Abandonment", desc: "Visitors who bounce without even browsing products. Broader net, lower intent", icon: "🌐" },
+        { label: "Replenishment Reminders", desc: "30-day post-purchase trigger. Jerky runs out, we remind them to restock", icon: "⏰" },
+        { label: "Subscription Soft-Launch", desc: "Once we have repeat buyer data, we target them with subscription offers through email", icon: "🔁" },
+        { label: "30-Day Performance Review", desc: "Full analysis once we've got a solid month of data across all live flows", icon: "📊" },
+      ],
+    },
+  },
 };
+
+const weekKeys = Object.keys(WEEKS);
 
 /* ── UTILS ── */
 const pct = (v) => `${(v * 100).toFixed(1)}%`;
@@ -300,7 +453,10 @@ function DiagnosticBar({ label, value, total, color, note }) {
   );
 }
 
-function CheckoutDiagnostic() {
+function CheckoutDiagnostic({ data }) {
+  if (!data) return null;
+  const { totalCheckouts, canGetEmail, gotEmail, breakdown } = data;
+  const otherCount = totalCheckouts - gotEmail;
   return (
     <div style={{ background: "#FFF8F0", border: "1px solid #F0D4A8", borderRadius: 10, padding: "18px 22px", margin: "16px 0 4px" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
@@ -308,23 +464,19 @@ function CheckoutDiagnostic() {
         <span style={{ fontWeight: 700, fontSize: 14, color: BRAND.dark }}>Why Checkout Numbers Look Low (and Why That's Actually OK)</span>
       </div>
 
-      <div style={{ fontSize: 12, color: BRAND.gray, marginBottom: 14, lineHeight: 1.5 }}>
-        Quick context: out of 195 checkout profiles since Feb 1, about 40% are phone-only (Shop Pay), 28% never subscribed to marketing, and 6% are bounce-suppressed. Only about 18% actually qualify for email, which lines up with the 32 recipients we're seeing. The flow is working correctly.
-      </div>
-
       <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16, padding: "10px 14px", background: BRAND.white, borderRadius: 8 }}>
         <div style={{ textAlign: "center", padding: "0 16px", borderRight: "1px solid #EEE" }}>
-          <div style={{ fontSize: 24, fontWeight: 700, color: BRAND.dark }}>195</div>
+          <div style={{ fontSize: 24, fontWeight: 700, color: BRAND.dark }}>{totalCheckouts}</div>
           <div style={{ fontSize: 10, color: BRAND.gray, textTransform: "uppercase" }}>Total Checkouts</div>
         </div>
         <div style={{ fontSize: 20, color: "#CCC" }}>→</div>
         <div style={{ textAlign: "center", padding: "0 16px", borderRight: "1px solid #EEE" }}>
-          <div style={{ fontSize: 24, fontWeight: 700, color: BRAND.amber }}>~35</div>
+          <div style={{ fontSize: 24, fontWeight: 700, color: BRAND.amber }}>~{canGetEmail}</div>
           <div style={{ fontSize: 10, color: BRAND.gray, textTransform: "uppercase" }}>Can Get Email</div>
         </div>
         <div style={{ fontSize: 20, color: "#CCC" }}>→</div>
         <div style={{ textAlign: "center", padding: "0 16px" }}>
-          <div style={{ fontSize: 24, fontWeight: 700, color: BRAND.green }}>32</div>
+          <div style={{ fontSize: 24, fontWeight: 700, color: BRAND.green }}>{gotEmail}</div>
           <div style={{ fontSize: 10, color: BRAND.gray, textTransform: "uppercase" }}>Got the Email</div>
         </div>
         <div style={{ marginLeft: "auto", background: "#E8F5E9", borderRadius: 6, padding: "6px 12px" }}>
@@ -333,14 +485,12 @@ function CheckoutDiagnostic() {
       </div>
 
       <div style={{ fontSize: 12, fontWeight: 700, color: BRAND.gray, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 10 }}>
-        So where did the other 160+ go?
+        So where did the other {otherCount}+ go?
       </div>
 
-      <DiagnosticBar label="📱 Phone-only (Shop Pay)" value={78} total={195} color="#9E9E9E" note="No email on file. They checked out with Shop Pay using just a phone number." />
-      <DiagnosticBar label="✅ Had email but weren't subscribed (FIXED)" value={55} total={195} color={BRAND.green} note="We turned on transactional sending for Email 1. These people will get the flow now." />
-      <DiagnosticBar label="🔴 Subscribed but bounced" value={12} total={195} color={BRAND.red} note="They opted in, but the email address is bad. Hard bounced, nothing we can do." />
-      <DiagnosticBar label="✅ Got the flow" value={32} total={195} color={BRAND.green} note="" />
-      <DiagnosticBar label="❓ Profile gone" value={18} total={195} color="#BDBDBD" note="These profiles don't exist in Klaviyo anymore. Probably merged or cleaned up." />
+      {breakdown.map((item, i) => (
+        <DiagnosticBar key={i} label={item.label} value={item.value} total={totalCheckouts} color={item.color} note={item.note} />
+      ))}
 
       <div style={{ marginTop: 16 }}>
         <div style={{ background: BRAND.white, borderRadius: 8, padding: "12px 16px", border: "1px solid #E0E0E0" }}>
@@ -353,7 +503,7 @@ function CheckoutDiagnostic() {
   );
 }
 
-function FlowCard({ flow, isExpanded, onToggle }) {
+function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
   const totalRecipients = flow.messages.reduce((s, m) => s + m.recipients, 0);
   const totalRevenue = flow.messages.reduce((s, m) => s + m.revenue, 0);
   const e1 = flow.messages[0];
@@ -410,7 +560,7 @@ function FlowCard({ flow, isExpanded, onToggle }) {
             </div>
           ))}
 
-          {flow.diagnostic && <CheckoutDiagnostic />}
+          {flow.diagnostic && <CheckoutDiagnostic data={checkoutDiagnostic} />}
         </div>
       )}
     </div>
@@ -455,8 +605,12 @@ function RoadmapSection({ title, subtitle, items, borderColor }) {
 
 /* ── MAIN DASHBOARD ── */
 function Dashboard() {
+  const [selectedWeek, setSelectedWeek] = useState(weekKeys[weekKeys.length - 1]);
   const [campaignExpanded, setCampaignExpanded] = useState({});
   const [flowExpanded, setFlowExpanded] = useState({});
+
+  const week = WEEKS[selectedWeek];
+  const { campaigns, insights, flows, checkoutDiagnostic, roadmap } = week;
 
   const toggleCampaign = (i) => setCampaignExpanded((prev) => ({ ...prev, [i]: !prev[i] }));
   const toggleFlow = (i) => setFlowExpanded((prev) => ({ ...prev, [i]: !prev[i] }));
@@ -467,39 +621,69 @@ function Dashboard() {
   const avgOpenRate = campaigns.reduce((s, c) => s + c.openRate, 0) / campaigns.length;
   const avgCTO = campaigns.reduce((s, c) => s + c.cto, 0) / campaigns.length;
 
+  // Reset expanded states when switching weeks
+  const handleWeekChange = (key) => {
+    setSelectedWeek(key);
+    setCampaignExpanded({});
+    setFlowExpanded({});
+  };
+
   return (
     <div style={{ background: "#F8F8F8", minHeight: "100vh", fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" }}>
       {/* Header */}
-      <div style={{ background: BRAND.dark, padding: "24px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-        <div>
-          <div style={{ color: BRAND.red, fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4 }}>Beefcake Jerky Co.</div>
-          <div style={{ color: BRAND.white, fontSize: 22, fontWeight: 700 }}>Email Performance Dashboard</div>
-          <div style={{ color: "#888", fontSize: 12, marginTop: 2 }}>Live from Klaviyo · Updated Feb 12, 2026</div>
+      <div style={{ background: BRAND.dark, padding: "24px 32px" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div>
+            <div style={{ color: BRAND.red, fontSize: 13, fontWeight: 700, textTransform: "uppercase", letterSpacing: 1.5, marginBottom: 4 }}>Beefcake Jerky Co.</div>
+            <div style={{ color: BRAND.white, fontSize: 22, fontWeight: 700 }}>Email Performance Dashboard</div>
+            <div style={{ color: "#888", fontSize: 12, marginTop: 2 }}>Live from Klaviyo · Updated {week.updatedDate}</div>
+          </div>
+          <div style={{ display: "flex", gap: 24 }}>
+            <div style={{ textAlign: "center" }}>
+              <div style={{ color: "#888", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>Campaigns Sent</div>
+              <div style={{ color: BRAND.white, fontSize: 28, fontWeight: 700 }}>{campaigns.length}</div>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <div style={{ color: "#888", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>Campaign Revenue</div>
+              <div style={{ color: BRAND.green, fontSize: 28, fontWeight: 700 }}>{shortCurrency(totalCampaignRevenue)}</div>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <div style={{ color: "#888", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>Live Flows</div>
+              <div style={{ color: BRAND.white, fontSize: 28, fontWeight: 700 }}>{flows.length}</div>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <div style={{ color: "#888", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>Flow Revenue</div>
+              <div style={{ color: totalFlowRevenue > 0 ? BRAND.green : "#666", fontSize: 28, fontWeight: 700 }}>{currency(totalFlowRevenue)}</div>
+            </div>
+          </div>
         </div>
-        <div style={{ display: "flex", gap: 24 }}>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ color: "#888", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>Campaigns Sent</div>
-            <div style={{ color: BRAND.white, fontSize: 28, fontWeight: 700 }}>{campaigns.length}</div>
+
+        {/* Week Selector */}
+        {weekKeys.length > 1 && (
+          <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
+            {weekKeys.map((key) => (
+              <button
+                key={key}
+                onClick={() => handleWeekChange(key)}
+                style={{
+                  padding: "6px 16px", fontSize: 12, fontWeight: 600,
+                  borderRadius: 20, border: "none", cursor: "pointer",
+                  background: selectedWeek === key ? BRAND.red : "#333",
+                  color: BRAND.white,
+                  transition: "background 0.2s",
+                }}
+              >
+                {WEEKS[key].label} <span style={{ fontWeight: 400, opacity: 0.7 }}>({WEEKS[key].dateRange})</span>
+              </button>
+            ))}
           </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ color: "#888", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>Campaign Revenue</div>
-            <div style={{ color: BRAND.green, fontSize: 28, fontWeight: 700 }}>{shortCurrency(totalCampaignRevenue)}</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ color: "#888", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>Live Flows</div>
-            <div style={{ color: BRAND.white, fontSize: 28, fontWeight: 700 }}>3</div>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <div style={{ color: "#888", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>Flow Revenue</div>
-            <div style={{ color: totalFlowRevenue > 0 ? BRAND.green : "#666", fontSize: 28, fontWeight: 700 }}>{currency(totalFlowRevenue)}</div>
-          </div>
-        </div>
+        )}
       </div>
 
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "24px 24px" }}>
 
         {/* ── SECTION 1: CAMPAIGNS ── */}
-        <SectionHeader title="Email Campaigns" subtitle="Individual sends from the last two weeks · Jan 29 to Feb 12" />
+        <SectionHeader title="Email Campaigns" subtitle={`Individual sends · ${week.dateRange}`} />
 
         {/* Summary stats */}
         <div style={{ background: BRAND.white, borderRadius: 10, border: "1px solid #E0E0E0", padding: "14px 18px", marginBottom: 12, display: "flex", gap: 24, flexWrap: "wrap" }}>
@@ -531,30 +715,9 @@ function Dashboard() {
 
         {/* Takeaways */}
         <div style={{ display: "flex", flexDirection: "column", gap: 8, marginBottom: 16 }}>
-          <InsightCard
-            icon="✅"
-            title="Opens are consistently strong"
-            body="Averaging 27.2% across all sends. Well above DTC food industry benchmarks (~18-22%). Subject lines are doing their job. This is not the problem."
-            borderColor={BRAND.green}
-          />
-          <InsightCard
-            icon="⚠️"
-            title="Click-to-open is the bottleneck"
-            body="Averaging 1.1% CTO across all sends. Only Warming 8 broke 2%. People are opening and then not finding a reason to click. This points to email body content, CTA placement, or offer clarity. It's the single biggest lever we have right now."
-            borderColor={BRAND.amber}
-          />
-          <InsightCard
-            icon="📉"
-            title="Three VDAY touches in 3 days showed diminishing returns"
-            body="Revenue dropped from $11.3K to $5.5K to $4.2K across the VDAY sequence. Opens, clicks, and conversions all trended down. For future promos, 2 sends max before switching the angle or waiting a few days."
-            borderColor={BRAND.red}
-          />
-          <InsightCard
-            icon="💡"
-            title="Warming 8 is the blueprint"
-            body="Same list, same audience, but 3x the click rate and 3x the revenue of Warming 7. Whatever was different about the content or layout in that email worked. Pull it apart and use it as the template."
-            borderColor={BRAND.blue}
-          />
+          {insights.map((ins, i) => (
+            <InsightCard key={i} icon={ins.icon} title={ins.title} body={ins.body} borderColor={ins.borderColor} />
+          ))}
         </div>
 
         {/* Campaign rows */}
@@ -564,11 +727,11 @@ function Dashboard() {
 
         {/* ── SECTION 2: LIVE FLOWS ── */}
         <div style={{ marginTop: 40 }}>
-          <SectionHeader title="Live Flows" subtitle="Automated sequences running in the background · Launched Feb 10" />
+          <SectionHeader title="Live Flows" subtitle={`Automated sequences · ${week.dateRange}`} />
         </div>
 
         {flows.map((flow, i) => (
-          <FlowCard key={i} flow={flow} isExpanded={flowExpanded[i]} onToggle={() => toggleFlow(i)} />
+          <FlowCard key={i} flow={flow} isExpanded={flowExpanded[i]} onToggle={() => toggleFlow(i)} checkoutDiagnostic={checkoutDiagnostic} />
         ))}
 
         {/* ── SECTION 3: ROADMAP ── */}
