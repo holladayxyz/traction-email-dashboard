@@ -314,6 +314,163 @@ const WEEKS = {
       ],
     },
   },
+  "week-7": {
+    label: "Week 7",
+    dateRange: "Feb 12 – Feb 26",
+    updatedDate: "Feb 26, 2026",
+    campaigns: [
+      {
+        name: "Why You Keep Getting Caught Hungry",
+        sendDate: "Feb 18",
+        recipients: 97569,
+        delivered: 96617,
+        openRate: 0.24388,
+        clickRate: 0.00241,
+        cto: 0.00989,
+        conversions: 51,
+        revenue: 2922.14,
+        bounceRate: 0.00976,
+        unsubRate: 0.00132,
+        rpr: 0.03,
+        aov: 57.30,
+        tag: { label: "Content Email", color: BRAND.blue },
+        insight: "Education-first send to the full list. Opens held at 24.4% — solid for a non-promo email — but CTO stayed under 1%. People read the content and didn't find a clear path to buy. Next version of this angle needs a tighter single CTA placed lower in the email after the education hook.",
+      },
+      {
+        name: "Review Capture — Purchased Customers",
+        sendDate: "Feb 22",
+        recipients: 25080,
+        delivered: 25006,
+        openRate: 0.20979,
+        clickRate: 0.00516,
+        cto: 0.02459,
+        conversions: 24,
+        revenue: 1319.42,
+        bounceRate: 0.00295,
+        unsubRate: 0.00084,
+        rpr: 0.053,
+        aov: 54.98,
+        tag: { label: "Segmented Send", color: BRAND.gray },
+        insight: "Targeted to first-time buyers asking for reviews. Small list (25K) but the strongest CTO of the period at 2.5%. Subject line 'You took a shot on us. How'd it land?' worked — it's direct, relatable, and not salesy. 24 conversions is a nice bonus, likely from people who re-engaged while thinking about leaving a review.",
+      },
+      {
+        name: "Review Capture — Repeat Buyers",
+        sendDate: "Feb 24",
+        recipients: 29519,
+        delivered: 29430,
+        openRate: 0.20415,
+        clickRate: 0.0002,
+        cto: 0.001,
+        conversions: 27,
+        revenue: 1526.32,
+        bounceRate: 0.00302,
+        unsubRate: 0.00112,
+        rpr: 0.052,
+        aov: 56.53,
+        tag: { label: "Click Gap", color: BRAND.amber },
+        insight: "Repeat buyers opened at 20.4% but barely clicked (0.1% CTO). The 27 conversions are likely attributed from opens + direct site visits, not click-throughs. This segment is loyal and buys without needing to click an email. But the review ask didn't land. Repeat buyers need a different hook — they already know they love the product, so the ask should appeal to their identity as fans, not just as customers.",
+      },
+      {
+        name: "The 4 Biggest Changes We're Making:",
+        sendDate: "Feb 26",
+        recipients: 97983,
+        delivered: 97240,
+        openRate: 0.08298,
+        clickRate: 0.00306,
+        cto: 0.03693,
+        conversions: 6,
+        revenue: 701.02,
+        bounceRate: 0.00758,
+        unsubRate: 0.00035,
+        rpr: 0.007,
+        aov: 116.84,
+        tag: { label: "Just Sent", color: BRAND.gray },
+        insight: "Sent today at 4pm — data is still accumulating. Open rates typically climb 3–4x in the first 24 hours, so the 8.3% shown is not representative. The early signal worth watching: 3.7% CTO is the highest we've seen on any full-list send. The people who did open are clicking. Check back tomorrow for a real read.",
+      },
+    ],
+    insights: [
+      { icon: "📱", title: "SMS for checkout is live — 10.7% conversion rate out of the gate", body: "3 conversions from 28 SMS sends vs 2 from 43 email sends. SMS is converting at more than 2x the rate of email in the same flow. This is the biggest structural win since launch — the phone-only abandoners email couldn't reach are now being captured.", borderColor: BRAND.green },
+      { icon: "📈", title: "SPIN series is scaling — $1,927 in flow revenue from 4 emails", body: "E1 is up from 274 to 1,806 total recipients since launch. E2 open rate jumped from 12.4% to 20% after the flow was restructured. The SPIN series is now the highest-revenue flow in the program. Mid-funnel clicks are still thin but the series has legs.", borderColor: BRAND.green },
+      { icon: "⚠️", title: "Click-through is still the bottleneck — but segmented sends are cracking it", body: "Mass sends and content emails open fine but don't click. The exception: first-time buyer review email hit 2.5% CTO. When the ask matches the audience's mindset, they act. That's the playbook — replicate it across other targeted segments.", borderColor: BRAND.amber },
+      { icon: "🔍", title: "The '4 Biggest Changes' is too fresh to judge — check back Feb 27", body: "Sent today at 4pm. Open rates typically climb 3–4x in the first 24 hours. The early 3.7% CTO is the highest we've seen on any full-list send. The people who opened it are clicking. Give it until tomorrow morning for a real read.", borderColor: BRAND.blue },
+    ],
+    flows: [
+      {
+        name: "Welcome Series",
+        id: "WUK7FY",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Added to List",
+        launchDate: "Feb 10",
+        messages: [
+          { label: "Email 1", recipients: 669, delivered: 652, openRate: 0.35429, clickRate: 0.03528, convRate: 0.00767, conversions: 5, revenue: 165.50, bounceRate: 0.02541, unsubRate: 0 },
+          { label: "Email 2", recipients: 154, delivered: 153, openRate: 0.20915, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00649, unsubRate: 0 },
+          { label: "Email 3", recipients: 100, delivered: 99, openRate: 0.21212, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.01, unsubRate: 0 },
+          { label: "Email 4", recipients: 48, delivered: 48, openRate: 0.3125, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0.02083 },
+        ],
+      },
+      {
+        name: "SPIN Welcome Series",
+        id: "RCEqqK",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Purchase)",
+        launchDate: "Feb 10",
+        messages: [
+          { label: "Email 1", recipients: 1806, delivered: 1763, openRate: 0.29495, clickRate: 0.01134, convRate: 0.01645, conversions: 29, revenue: 1594.29, bounceRate: 0.02381, unsubRate: 0.00851 },
+          { label: "Email 2", recipients: 1594, delivered: 1583, openRate: 0.20025, clickRate: 0.00379, convRate: 0.0019, conversions: 3, revenue: 209.65, bounceRate: 0.0069, unsubRate: 0.00316 },
+          { label: "Email 3", recipients: 1416, delivered: 1404, openRate: 0.18661, clickRate: 0.00499, convRate: 0.00071, conversions: 1, revenue: 61.96, bounceRate: 0.00847, unsubRate: 0.00285 },
+          { label: "Email 4", recipients: 1210, delivered: 1202, openRate: 0.20549, clickRate: 0.00832, convRate: 0.00083, conversions: 1, revenue: 61.98, bounceRate: 0.00661, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "Abandoned Checkout",
+        id: "Tpym9d",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Checkout Started",
+        launchDate: "Feb 10",
+        smsLive: true,
+        messages: [
+          { label: "Email 1", recipients: 43, delivered: 42, openRate: 0.21429, clickRate: 0.02381, convRate: 0.04762, conversions: 2, revenue: 220.52, bounceRate: 0.02326, unsubRate: 0 },
+          { label: "Email 2", recipients: 69, delivered: 69, openRate: 0.21739, clickRate: 0.01449, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+          { label: "Text 1", recipients: 28, delivered: 28, openRate: null, clickRate: 0.07143, convRate: 0.10714, conversions: 3, revenue: 266.41, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Post-Purchase",
+        id: "Vf5YHp",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Purchase)",
+        launchDate: "Feb 10",
+        messages: [
+          { label: "Email 1", recipients: 673, delivered: 671, openRate: 0.22504, clickRate: 0.00894, convRate: 0.00149, conversions: 1, revenue: 26.04, bounceRate: 0.00297, unsubRate: 0.00149 },
+        ],
+      },
+    ],
+    checkoutDiagnostic: null,
+    roadmap: {
+      now: [
+        { label: "Email Design System Refresh", desc: "Rebuilding the template system and A/B testing new designs against current to measure performance lift", icon: "🎨" },
+        { label: "Improve Click-Through", desc: "CTO is still the main bottleneck. Working on stronger CTAs and better content-to-offer bridges across all sends", icon: "🎯" },
+        { label: "SPIN Series Optimization", desc: "E1 is strong at 29.5% opens. Mid-funnel (E2–E4) holds around 19–21% but clicks are thin — testing angles to drive more action deeper in the series", icon: "🔍" },
+        { label: "Review Flow Automation", desc: "One-off review campaigns showed the ask works. Next: automate this as a triggered flow 14 days post-purchase instead of manual sends", icon: "⭐" },
+      ],
+      next: [
+        { label: "Browse Abandonment", desc: "People who looked at products but didn't add to cart. Low-hanging fruit with a targeted flow", icon: "👀" },
+        { label: "Customer Winback", desc: "50K+ lapsed profiles sitting in Klaviyo. Targeted re-engagement sequence to bring them back", icon: "🔄" },
+        { label: "A/B Test Subject Lines", desc: "Welcome Series Email 1 is the highest-volume entry point. Testing variants to push opens consistently above 35%", icon: "🧪" },
+        { label: "30-Day Performance Review", desc: "Flows have been live ~2.5 weeks. Full analysis to benchmark performance and set month 2 targets", icon: "📊" },
+      ],
+      later: [
+        { label: "Site Abandonment", desc: "Visitors who bounce without browsing products. Broader net, lower intent — needs a bigger list first", icon: "🌐" },
+        { label: "Replenishment Reminders", desc: "30-day post-purchase trigger. Jerky runs out, we remind them to restock before they forget", icon: "⏰" },
+        { label: "Subscription Soft-Launch", desc: "Once we have more repeat buyer data, target them with subscription offers through email and SMS", icon: "🔁" },
+        { label: "Post-Purchase Optimization", desc: "Flow launched with 673 recipients and solid open rates. Need more data before optimizing — watching trends closely", icon: "📦" },
+      ],
+    },
+  },
 };
 
 const weekKeys = Object.keys(WEEKS);
@@ -503,6 +660,45 @@ function CheckoutDiagnostic({ data }) {
   );
 }
 
+function SMSInsight({ flow }) {
+  const emailConversions = flow.messages.filter(m => m.channel !== "sms").reduce((s, m) => s + m.conversions, 0);
+  const emailRevenue = flow.messages.filter(m => m.channel !== "sms").reduce((s, m) => s + m.revenue, 0);
+  const sms = flow.messages.find(m => m.channel === "sms");
+  return (
+    <div style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", borderRadius: 10, padding: "18px 22px", margin: "16px 0 4px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+        <span style={{ fontSize: 16 }}>📱</span>
+        <span style={{ fontWeight: 700, fontSize: 14, color: BRAND.dark }}>SMS Is Live — And It's Converting</span>
+        <div style={{ marginLeft: "auto", background: BRAND.green, borderRadius: 6, padding: "4px 12px" }}>
+          <div style={{ fontSize: 11, fontWeight: 600, color: BRAND.white }}>NEW</div>
+        </div>
+      </div>
+      <div style={{ fontSize: 12, color: BRAND.gray, marginBottom: 16, lineHeight: 1.5 }}>
+        The checkout flow now reaches abandoners through both email and SMS. SMS targets the phone-only segment that email can't reach. Early results show SMS converting at more than 2x the rate of email.
+      </div>
+      <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
+        <div style={{ flex: 1, minWidth: 160, background: BRAND.white, borderRadius: 8, padding: "14px 16px", border: "1px solid #E0E0E0" }}>
+          <div style={{ fontSize: 10, color: BRAND.gray, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>Email (E1 + E2)</div>
+          <div style={{ fontSize: 22, fontWeight: 700, color: BRAND.dark }}>{emailConversions} conv.</div>
+          <div style={{ fontSize: 12, color: BRAND.green, fontWeight: 600, marginTop: 2 }}>{currency(emailRevenue)}</div>
+          <div style={{ fontSize: 11, color: BRAND.gray, marginTop: 4 }}>4.7% conv. rate on E1</div>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", fontSize: 20, color: "#CCC" }}>+</div>
+        <div style={{ flex: 1, minWidth: 160, background: "#F0FDF4", borderRadius: 8, padding: "14px 16px", border: `1px solid ${BRAND.green}` }}>
+          <div style={{ fontSize: 10, color: BRAND.gray, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>SMS (Text 1)</div>
+          <div style={{ fontSize: 22, fontWeight: 700, color: BRAND.green }}>{sms ? sms.conversions : 0} conv.</div>
+          <div style={{ fontSize: 12, color: BRAND.green, fontWeight: 600, marginTop: 2 }}>{sms ? currency(sms.revenue) : "$0"}</div>
+          <div style={{ fontSize: 11, color: BRAND.gray, marginTop: 4 }}>10.7% conv. rate on 28 sends</div>
+        </div>
+      </div>
+      <div style={{ background: BRAND.white, borderRadius: 8, padding: "10px 14px", border: "1px solid #E0E0E0" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: BRAND.blue, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>Next Move</div>
+        <div style={{ fontSize: 12, color: BRAND.dark }}>Grow the SMS subscriber base to increase reach. More SMS subscribers = more phone-only abandoners we can recover.</div>
+      </div>
+    </div>
+  );
+}
+
 function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
   const totalRecipients = flow.messages.reduce((s, m) => s + m.recipients, 0);
   const totalRevenue = flow.messages.reduce((s, m) => s + m.revenue, 0);
@@ -523,6 +719,7 @@ function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
           </div>
           <div style={{ fontSize: 16, fontWeight: 700, color: isExpanded ? BRAND.white : BRAND.dark }}>{flow.name}</div>
           {flow.diagnostic && <div style={{ fontSize: 10, fontWeight: 600, color: BRAND.amber, background: "#FFF3E0", padding: "2px 8px", borderRadius: 4 }}>DIAGNOSED</div>}
+          {flow.smsLive && <div style={{ fontSize: 10, fontWeight: 600, color: BRAND.green, background: "#F0FDF4", padding: "2px 8px", borderRadius: 4, border: "1px solid #BBF7D0" }}>+ SMS</div>}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div style={{ textAlign: "right" }}>
@@ -544,23 +741,35 @@ function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
             <div style={{ fontSize: 12, color: BRAND.gray }}><strong>Launched:</strong> {flow.launchDate}</div>
           </div>
 
-          {flow.messages.map((msg, i) => (
-            <div key={i} style={{ marginBottom: i < flow.messages.length - 1 ? 16 : 0 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: BRAND.dark, marginBottom: 8 }}>{msg.label}</div>
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <MetricPill label="Recipients" value={msg.recipients} status="neutral" />
-                <MetricPill label="Delivered" value={pct(msg.delivered / msg.recipients)} status={msg.delivered / msg.recipients > 0.97 ? "good" : "warning"} benchmark="97%" />
-                <MetricPill label="Open Rate" value={pct(msg.openRate)} status={i === 0 ? openStatus : "neutral"} benchmark={i === 0 ? "28%" : undefined} />
-                <MetricPill label="Click Rate" value={pct(msg.clickRate)} status={i === 0 ? clickStatus : "neutral"} benchmark={i === 0 ? "1.5%" : undefined} />
-                <MetricPill label="Conversions" value={msg.conversions} status={msg.conversions > 0 ? "good" : "neutral"} />
-                <MetricPill label="Revenue" value={currency(msg.revenue)} status={msg.revenue > 0 ? "good" : "neutral"} />
-                {msg.bounceRate > 0.02 && <MetricPill label="Bounce" value={pct(msg.bounceRate)} status="bad" benchmark="<2%" />}
-                {msg.unsubRate > 0.01 && <MetricPill label="Unsub" value={pct(msg.unsubRate)} status="warning" benchmark="<1%" />}
+          {flow.messages.map((msg, i) => {
+            const isSMS = msg.channel === "sms";
+            return (
+              <div key={i} style={{ marginBottom: i < flow.messages.length - 1 ? 20 : 0 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: BRAND.dark }}>{msg.label}</div>
+                  {isSMS && <div style={{ fontSize: 10, fontWeight: 600, color: BRAND.blue, background: "#EFF6FF", padding: "2px 8px", borderRadius: 4 }}>SMS</div>}
+                </div>
+                <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                  <MetricPill label="Recipients" value={msg.recipients} status="neutral" />
+                  <MetricPill label="Delivered" value={pct(msg.delivered / msg.recipients)} status={msg.delivered / msg.recipients > 0.97 ? "good" : "warning"} benchmark="97%" />
+                  {!isSMS && <MetricPill label="Open Rate" value={pct(msg.openRate)} status={i === 0 ? openStatus : "neutral"} benchmark={i === 0 ? "28%" : undefined} />}
+                  <MetricPill
+                    label={isSMS ? "Response Rate" : "Click Rate"}
+                    value={pct(msg.clickRate)}
+                    status={isSMS ? (msg.clickRate >= 0.05 ? "good" : "warning") : (i === 0 ? clickStatus : "neutral")}
+                    benchmark={isSMS ? "5%" : (i === 0 ? "1.5%" : undefined)}
+                  />
+                  <MetricPill label="Conversions" value={msg.conversions} status={msg.conversions > 0 ? "good" : "neutral"} />
+                  <MetricPill label="Revenue" value={currency(msg.revenue)} status={msg.revenue > 0 ? "good" : "neutral"} />
+                  {msg.bounceRate > 0.02 && <MetricPill label="Bounce" value={pct(msg.bounceRate)} status="bad" benchmark="<2%" />}
+                  {msg.unsubRate > 0.01 && <MetricPill label="Unsub" value={pct(msg.unsubRate)} status="warning" benchmark="<1%" />}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
 
           {flow.diagnostic && <CheckoutDiagnostic data={checkoutDiagnostic} />}
+          {flow.smsLive && <SMSInsight flow={flow} />}
         </div>
       )}
     </div>
