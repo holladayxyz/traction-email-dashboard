@@ -389,10 +389,10 @@ const WEEKS = {
       },
     ],
     insights: [
-      { icon: "📱", title: "SMS for checkout is live — 10.7% conversion rate out of the gate", body: "3 conversions from 28 SMS sends vs 2 from 43 email sends. SMS is converting at more than 2x the rate of email in the same flow. This is the biggest structural win since launch — the phone-only abandoners email couldn't reach are now being captured.", borderColor: BRAND.green },
-      { icon: "📈", title: "SPIN series is scaling — $1,927 in flow revenue from 4 emails", body: "E1 is up from 274 to 1,806 total recipients since launch. E2 open rate jumped from 12.4% to 20% after the flow was restructured. The SPIN series is now the highest-revenue flow in the program. Mid-funnel clicks are still thin but the series has legs.", borderColor: BRAND.green },
-      { icon: "⚠️", title: "Click-through is still the bottleneck — but segmented sends are cracking it", body: "Mass sends and content emails open fine but don't click. The exception: first-time buyer review email hit 2.5% CTO. When the ask matches the audience's mindset, they act. That's the playbook — replicate it across other targeted segments.", borderColor: BRAND.amber },
-      { icon: "🔍", title: "The '4 Biggest Changes' is too fresh to judge — check back Feb 27", body: "Sent today at 4pm. Open rates typically climb 3–4x in the first 24 hours. The early 3.7% CTO is the highest we've seen on any full-list send. The people who opened it are clicking. Give it until tomorrow morning for a real read.", borderColor: BRAND.blue },
+      { icon: "📱", title: "SMS is a fundamentally better channel — build it aggressively", body: "SMS generates $0.14 revenue per recipient vs. $0.08 for email — 75% more per send — on a list 3x smaller. VDAY SMS converted at 3.86% vs. ~0.5% for the same email promo on the same day. That's nearly 8x the conversion rate. The Abandoned Checkout SMS is sitting at 10.71% CVR and $9.51 RPR on just 28 sends. Once volume picks up, that flow alone will be the strongest revenue driver in the program. The single highest-leverage move right now is growing the SMS list.", borderColor: BRAND.green },
+      { icon: "🔥", title: "Three quick wins sitting on the table — none require new creative", body: "1) Flip Customer Winback from Draft to Live — it's built, it's off, it's losing money every day. 2) Fix the broken link in Review Capture – Repeat Buyers — same template and list size as First-Time Buyers but 0.02% CTR vs. 0.52%. The link is broken. 3) Confirm Browse Abandonment tracking is firing, then activate the flow. These three together could move meaningful revenue this week with zero new work.", borderColor: BRAND.red },
+      { icon: "📈", title: "SPIN series is scaling — $1,927 in flow revenue from 4 emails", body: "E1 is up from 274 to 1,806 total recipients since launch. E2 open rate jumped from 12.4% to 20% after the flow was restructured. The SPIN series is now the highest-revenue email flow in the program. Mid-funnel clicks are still thin but the series has legs.", borderColor: BRAND.green },
+      { icon: "⚠️", title: "Watch today's send — 8.87% open rate on 98K is a yellow flag", body: "'The 4 Biggest Changes' opened at 8.87% on 98K recipients. That's low — typical full-list sends run 21–25%. It was sent same-day so early data is partial, but if that number doesn't climb significantly by tomorrow morning it could signal a deliverability issue from the rapid list scale-up. Check it again in 12–24 hours before drawing conclusions.", borderColor: BRAND.amber },
     ],
     flows: [
       {
@@ -452,22 +452,22 @@ const WEEKS = {
     checkoutDiagnostic: null,
     roadmap: {
       now: [
-        { label: "Email Design System Refresh", desc: "Rebuilding the template system and A/B testing new designs against current to measure performance lift", icon: "🎨" },
-        { label: "Improve Click-Through", desc: "CTO is still the main bottleneck. Working on stronger CTAs and better content-to-offer bridges across all sends", icon: "🎯" },
-        { label: "SPIN Series Optimization", desc: "E1 is strong at 29.5% opens. Mid-funnel (E2–E4) holds around 19–21% but clicks are thin — testing angles to drive more action deeper in the series", icon: "🔍" },
-        { label: "Review Flow Automation", desc: "One-off review campaigns showed the ask works. Next: automate this as a triggered flow 14 days post-purchase instead of manual sends", icon: "⭐" },
+        { label: "Grow the SMS List", desc: "SMS is generating $0.14 RPR vs. $0.08 for email — 75% more per send on a list 3x smaller. Every new SMS subscriber is worth more than an email subscriber right now. Add SMS opt-ins to the checkout flow, post-purchase page, and pop-up. This is the highest-leverage growth move in the account.", icon: "📱" },
+        { label: "Activate Customer Winback", desc: "The flow is built and sitting in Draft. Zero revenue right now — and every day it's off is money left on the table. Flip it Live. Takes 2 minutes.", icon: "🔄" },
+        { label: "Fix Review Capture – Repeat Buyers CTR", desc: "Same template, same list size as First-Time Buyers, but 0.02% CTR vs. 0.52%. The link is broken. Find it, fix it, resend or re-enable the flow.", icon: "🔧" },
+        { label: "Confirm Browse Abandonment Tracking", desc: "Verify the pixel is firing correctly on product pages, then activate the flow. Highest-upside unactivated flow in the account — can't turn it on until tracking is confirmed.", icon: "👀" },
       ],
       next: [
-        { label: "Browse Abandonment", desc: "People who looked at products but didn't add to cart. Low-hanging fruit with a targeted flow", icon: "👀" },
-        { label: "Customer Winback", desc: "50K+ lapsed profiles sitting in Klaviyo. Targeted re-engagement sequence to bring them back", icon: "🔄" },
-        { label: "A/B Test Subject Lines", desc: "Welcome Series Email 1 is the highest-volume entry point. Testing variants to push opens consistently above 35%", icon: "🧪" },
-        { label: "30-Day Performance Review", desc: "Flows have been live ~2.5 weeks. Full analysis to benchmark performance and set month 2 targets", icon: "📊" },
+        { label: "Build Out SMS Flows", desc: "Abandoned Checkout SMS is at 10.71% CVR and $9.51 RPR on 28 sends. That's not a fluke — it's a signal. Build SMS into Welcome, Post-Purchase, and Winback. Once the SMS list grows, these flows will generate disproportionate revenue.", icon: "💬" },
+        { label: "Review Flow Automation", desc: "The manual review campaigns worked — 2.5% CTO on first-time buyers. Automate it as a triggered flow at 14 days post-purchase so it runs without manual sends.", icon: "⭐" },
+        { label: "SPIN Series Click Optimization", desc: "E1 opens at 29.5% and the series is the top revenue flow. E2–E4 clicks are thin. Test stronger CTAs and more direct offers deeper in the sequence.", icon: "🔍" },
+        { label: "30-Day Performance Review", desc: "Flows have been live ~2.5 weeks. Full analysis to set month 2 benchmarks and identify the next optimization priorities across email and SMS.", icon: "📊" },
       ],
       later: [
         { label: "Site Abandonment", desc: "Visitors who bounce without browsing products. Broader net, lower intent — needs a bigger list first", icon: "🌐" },
         { label: "Replenishment Reminders", desc: "30-day post-purchase trigger. Jerky runs out, we remind them to restock before they forget", icon: "⏰" },
         { label: "Subscription Soft-Launch", desc: "Once we have more repeat buyer data, target them with subscription offers through email and SMS", icon: "🔁" },
-        { label: "Post-Purchase Optimization", desc: "Flow launched with 673 recipients and solid open rates. Need more data before optimizing — watching trends closely", icon: "📦" },
+        { label: "Email Design System Refresh", desc: "Rebuilding the template system and A/B testing new designs against current to measure performance lift", icon: "🎨" },
       ],
     },
   },
