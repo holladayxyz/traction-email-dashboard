@@ -1227,7 +1227,6 @@ function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
         <div style={{ padding: "0 20px 20px" }}>
           <div style={{ display: "flex", gap: 12, padding: "16px 0 12px", borderBottom: "1px solid #EEE", marginBottom: 16 }}>
             <div style={{ fontSize: 12, color: BRAND.gray }}><strong>Trigger:</strong> {flow.trigger}</div>
-            <div style={{ fontSize: 12, color: BRAND.gray }}><strong>Launched:</strong> {flow.launchDate}</div>
           </div>
 
           {flow.messages.map((msg, i) => {
