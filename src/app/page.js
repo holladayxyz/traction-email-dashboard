@@ -853,6 +853,8 @@ const WEEKS = {
       { icon: "✅", title: "Sneak peek + launch sequence is a proven format", body: "The Mar 4 sneak peek (68 conversions, $5,066) set up the Mar 6 launch (66 conversions, $5,196) for back-to-back strong revenue days. Pre-launch teasers prime purchase intent without burning the audience. This two-email structure — teaser 48 hours before, launch day announcement — should be the template for every future product drop.", borderColor: BRAND.green },
       { icon: "⚠️", title: "Email CTO still under 1% on full-list sends", body: "All three broadcast emails this week had CTO under 1%: 0.99%, 0.85%, and 0.48%. Opens at 21–23% are healthy, but the click gap remains the primary bottleneck. The story-driven email (Mar 7) had the creative hook but no clear CTA bridge. Email body optimization — single CTA, direct offer language — remains the highest-leverage email improvement.", borderColor: BRAND.amber },
       { icon: "💡", title: "Bounce rates improving — deliverability trending better", body: "Week 6 bounce rates are the lowest since the program launched: 0.52–0.72% on full-list sends vs. 0.88–1.05% in Week 2. List hygiene from the early warming campaign sends is paying off. Lower bounces mean better inbox placement, which compounds over time into higher open rates.", borderColor: BRAND.blue },
+      { icon: "🏗️", title: "UTM source tracking system built and deployed", body: "Full attribution infrastructure is now live in Klaviyo: 6 source segments created (Meta Paid, Google Paid, TikTok Paid, Organic, Klaviyo Email/SMS, Unknown), UTM tracking applied to all 23 email flow-actions across 5 flows, and campaign tracking configured. Hidden form fields spec'd for the Spin to Win popup — once Jake enables them, every new subscriber will carry first-touch source data. QA sign-off completed March 9.", borderColor: BRAND.blue },
+      { icon: "📦", title: "QR-to-SMS acquisition program designed for Casey's retail launch", body: "New channel: QR codes on Casey's retail packaging → SMS keyword subscribe → mystery discount flow (random 10/15/20% off). Full spec delivered including Shopify bulk discount code generation, Klaviyo coupon lists, landing page, 3-path welcome flow with Day 21 and Day 29 reminder sequence. Bitly dynamic QR and keyword 'JERKY' ready — awaiting Jake's inputs on go-live details.", borderColor: BRAND.green },
     ],
     flows: [
       {
@@ -930,9 +932,33 @@ const WEEKS = {
           { label: "SMS Text 1", recipients: 162, delivered: 162, openRate: null, clickRate: 0.04938, convRate: 0.00617, conversions: 1, revenue: 29.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
         ],
       },
+      {
+        name: "QR Mystery Discount (Casey's)",
+        id: "TBD",
+        status: "IN BUILD",
+        statusColor: BRAND.amber,
+        trigger: "Added to List (QR Keyword Subscribe)",
+        launchDate: "—",
+        smsLive: true,
+        messages: [],
+        note: "Spec complete. 3-path random split (10/15/20% off) with Day 0 welcome SMS, Day 21 reminder, Day 29 final nudge. Awaiting Jake sign-off on keyword, discount expiry, and packaging timeline.",
+      },
     ],
     checkoutDiagnostic: null,
-    roadmap: { now: [], next: [], later: [] },
+    roadmap: {
+      now: [
+        { icon: "🔧", label: "Enable hidden UTM fields on Spin to Win form", desc: "~15 min in Klaviyo form builder — Jake action item" },
+        { icon: "🔧", label: "Apply UTM tracking to 5 email flows", desc: "~15 min clicking through flow settings — Jake action item" },
+      ],
+      next: [
+        { icon: "📦", label: "Build QR Mystery Discount flow in Klaviyo", desc: "Awaiting Jake's sign-off on keyword, discount tiers, and Casey's packaging timeline" },
+        { icon: "📊", label: "Upload UTM registry spreadsheet", desc: "Central reference for all UTM naming conventions across paid channels" },
+      ],
+      later: [
+        { icon: "📈", label: "Monitor source segment growth", desc: "Track how the 6 segments populate after form hidden fields go live" },
+        { icon: "🔄", label: "Replenish Shopify discount codes", desc: "Generate new batches as QR program scales at Casey's locations" },
+      ],
+    },
   },
 };
 
@@ -1231,8 +1257,13 @@ function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
             );
           })}
 
+          {flow.note && (
+            <div style={{ background: "#FFFBEB", border: "1px solid #FDE68A", borderRadius: 8, padding: "12px 16px", marginTop: flow.messages.length > 0 ? 16 : 0, fontSize: 13, color: BRAND.gray, lineHeight: 1.5 }}>
+              <strong style={{ color: BRAND.amber }}>Status Note:</strong> {flow.note}
+            </div>
+          )}
           {flow.diagnostic && <CheckoutDiagnostic data={checkoutDiagnostic} />}
-          {flow.smsLive && <SMSInsight flow={flow} />}
+          {flow.smsLive && !flow.note && <SMSInsight flow={flow} />}
         </div>
       )}
     </div>
