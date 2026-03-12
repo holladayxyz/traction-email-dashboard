@@ -854,7 +854,7 @@ const WEEKS = {
       { icon: "⚠️", title: "Email CTO still under 1% on full-list sends", body: "All three broadcast emails this week had CTO under 1%: 0.99%, 0.85%, and 0.48%. Opens at 21–23% are healthy, but the click gap remains the primary bottleneck. The story-driven email (Mar 7) had the creative hook but no clear CTA bridge. Email body optimization — single CTA, direct offer language — remains the highest-leverage email improvement.", borderColor: BRAND.amber },
       { icon: "💡", title: "Bounce rates improving — deliverability trending better", body: "Week 6 bounce rates are the lowest since the program launched: 0.52–0.72% on full-list sends vs. 0.88–1.05% in Week 2. List hygiene from the early warming campaign sends is paying off. Lower bounces mean better inbox placement, which compounds over time into higher open rates.", borderColor: BRAND.blue },
       { icon: "🏗️", title: "UTM source tracking system built and deployed", body: "Full attribution infrastructure is now live in Klaviyo: 6 source segments created (Meta Paid, Google Paid, TikTok Paid, Organic, Klaviyo Email/SMS, Unknown), UTM tracking applied to all 23 email flow-actions across 5 flows, and campaign tracking configured. Hidden form fields spec'd for the Spin to Win popup — once Jake enables them, every new subscriber will carry first-touch source data. QA sign-off completed March 9.", borderColor: BRAND.blue },
-      { icon: "📦", title: "QR-to-SMS acquisition program designed for Casey's retail launch", body: "New channel: QR codes on Casey's retail packaging → SMS keyword subscribe → mystery discount flow (random 10/15/20% off). Full spec delivered including Shopify bulk discount code generation, Klaviyo coupon lists, landing page, 3-path welcome flow with Day 21 and Day 29 reminder sequence. Bitly dynamic QR and keyword 'JERKY' ready — awaiting Jake's inputs on go-live details.", borderColor: BRAND.green },
+      { icon: "📦", title: "QR-to-SMS acquisition program designed for retail launch", body: "New channel: QR codes on retail packaging → SMS keyword subscribe → mystery discount flow (random 10/15/20% off). Full spec delivered including Shopify bulk discount code generation, Klaviyo coupon lists, landing page, 3-path welcome flow with Day 21 and Day 29 reminder sequence. Bitly dynamic QR and keyword 'JERKY' ready — awaiting Jake's inputs on go-live details.", borderColor: BRAND.green },
     ],
     flows: [
       {
@@ -933,7 +933,7 @@ const WEEKS = {
         ],
       },
       {
-        name: "QR Mystery Discount (Casey's)",
+        name: "QR Mystery Discount",
         id: "TBD",
         status: "IN BUILD",
         statusColor: BRAND.amber,
@@ -951,12 +951,12 @@ const WEEKS = {
         { icon: "🔧", label: "Apply UTM tracking to 5 email flows", desc: "~15 min clicking through flow settings — Jake action item" },
       ],
       next: [
-        { icon: "📦", label: "Build QR Mystery Discount flow in Klaviyo", desc: "Awaiting Jake's sign-off on keyword, discount tiers, and Casey's packaging timeline" },
+        { icon: "📦", label: "Build QR Mystery Discount flow in Klaviyo", desc: "Awaiting Jake's sign-off on keyword and discount tiers" },
         { icon: "📊", label: "Upload UTM registry spreadsheet", desc: "Central reference for all UTM naming conventions across paid channels" },
       ],
       later: [
         { icon: "📈", label: "Monitor source segment growth", desc: "Track how the 6 segments populate after form hidden fields go live" },
-        { icon: "🔄", label: "Replenish Shopify discount codes", desc: "Generate new batches as QR program scales at Casey's locations" },
+        { icon: "🔄", label: "Replenish Shopify discount codes", desc: "Generate new batches as QR program scales" },
       ],
     },
   },
