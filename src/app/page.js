@@ -1191,10 +1191,10 @@ function SMSInsight({ flow }) {
 function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
   const totalRecipients = flow.messages.reduce((s, m) => s + m.recipients, 0);
   const totalRevenue = flow.messages.reduce((s, m) => s + m.revenue, 0);
-  const e1 = flow.messages[0];
+  const e1 = flow.messages[0] || null;
 
-  const openStatus = e1.openRate >= 0.28 ? "good" : e1.openRate >= 0.20 ? "warning" : "bad";
-  const clickStatus = e1.clickRate >= 0.015 ? "good" : e1.clickRate > 0 ? "warning" : "bad";
+  const openStatus = e1 ? (e1.openRate >= 0.28 ? "good" : e1.openRate >= 0.20 ? "warning" : "bad") : "neutral";
+  const clickStatus = e1 ? (e1.clickRate >= 0.015 ? "good" : e1.clickRate > 0 ? "warning" : "bad") : "neutral";
 
   return (
     <div style={{ background: BRAND.white, borderRadius: 12, border: `1px solid ${flow.diagnostic ? BRAND.amber : "#E0E0E0"}`, marginBottom: 16, overflow: "hidden", boxShadow: flow.diagnostic ? `0 0 0 1px ${BRAND.amber}22` : "0 1px 3px rgba(0,0,0,0.06)" }}>
