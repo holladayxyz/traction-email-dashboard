@@ -166,6 +166,7 @@ const WEEKS = {
     roadmap: {
       now: [
         { label: "Email Design System Refresh", desc: "The team's been talking about freshening up the email look. We're rebuilding the template system and will A/B test the new design against current templates to measure the performance difference", icon: "🎨" },
+        { label: "SMS for Abandoned Checkout", desc: "About 40% of checkout abandoners are phone-only through Shop Pay, so SMS is the only way to reach them", icon: "📱" },
         { label: "Improve Click-Through", desc: "Welcome E2 and Checkout emails need stronger CTAs. Opens are solid, clicks need work", icon: "🎯" },
         { label: "SPIN E2 Drop-off", desc: "Open rate drops from 25.2% to 12.4% between Email 1 and 2. We need to figure out why", icon: "🔍" },
       ],
@@ -183,134 +184,755 @@ const WEEKS = {
       ],
     },
   },
-  "week-6": {
-    label: "Week 6",
-    dateRange: "Feb 12 – Feb 19",
-    updatedDate: "Feb 19, 2026",
+  "week-2": {
+    label: "Week 2",
+    dateRange: "Feb 5 – Feb 12",
+    updatedDate: "Feb 12, 2026",
     campaigns: [
       {
-        name: "Why You Keep Getting Caught Hungry",
-        sendDate: "Feb 18",
-        recipients: 97423,
-        delivered: 96606,
-        openRate: 0.21921,
-        clickRate: 0.00211,
-        cto: 0.00963,
-        conversions: 15,
-        revenue: 761.01,
-        bounceRate: 0.00839,
-        unsubRate: 0.00102,
-        rpr: 0.01,
-        aov: 50.73,
-        tag: { label: "Content Test", color: BRAND.blue },
-        insight: "21.9% open rate on 97K recipients shows solid deliverability and subject line pull. Click-to-open came in at 0.96% — the content hook landed but the email body needs a stronger CTA to convert readers into clickers. Good candidate for an A/B test with a more offer-forward layout.",
+        name: "Don't Miss HOT HONEY",
+        sendDate: "Feb 6",
+        recipients: 94337,
+        delivered: 93348,
+        openRate: 0.27338,
+        clickRate: 0.00215,
+        cto: 0.00786,
+        conversions: 77,
+        revenue: 5513.30,
+        bounceRate: 0.01047,
+        unsubRate: 0.00119,
+        rpr: 0.06,
+        aov: 71.60,
+        tag: { label: "Click Gap", color: BRAND.amber },
+        insight: "Opens came in at 27.3% — strong for a follow-up email — but CTO dropped to 0.79%. Nearly 26K people opened this email and didn't click. The subject line is working, but the email body isn't converting that attention into action. HOT HONEY is a compelling offer; the layout and CTA need to make it easier to say yes.",
+      },
+      {
+        name: "JERKY > FLOWERS",
+        sendDate: "Feb 8",
+        recipients: 95395,
+        delivered: 94413,
+        openRate: 0.24836,
+        clickRate: 0.00161,
+        cto: 0.00648,
+        conversions: 60,
+        revenue: 4615.57,
+        bounceRate: 0.01029,
+        unsubRate: 0.00122,
+        rpr: 0.05,
+        aov: 76.93,
+        tag: { label: "Fatigue Signal", color: BRAND.red },
+        insight: "Third Valentine's Day-angle send in three days. Opens fell to 24.8%, clicks to 0.16%, and revenue dropped $900 from the previous day. Classic send fatigue on a promo sequence. The audience had already decided on VDAY purchases. Future promotional windows should cap at 2 email touches before changing the angle or pulling back.",
+      },
+      {
+        name: "Don't Miss HOT HONEY (SMS)",
+        sendDate: "Feb 7",
+        recipients: 30852,
+        delivered: 30852,
+        openRate: null,
+        clickRate: 0.0105,
+        cto: null,
+        conversions: 43,
+        revenue: 3534.31,
+        bounceRate: 0,
+        unsubRate: 0,
+        rpr: 0.11,
+        aov: 82.19,
+        tag: { label: "Strong Launch", color: BRAND.blue },
+        insight: "SMS pulled $3,534 on 30K sends — $0.11 RPR vs. $0.06 for the same-day email to a list 3x larger. That's nearly double the revenue per contact on a fraction of the audience. SMS continues to dramatically outperform email on a per-contact basis for promotional sends.",
+      },
+      {
+        name: "JERKY > FLOWERS (SMS)",
+        sendDate: "Feb 10",
+        recipients: 30833,
+        delivered: 30833,
+        openRate: null,
+        clickRate: 0.01272,
+        cto: null,
+        conversions: 19,
+        revenue: 1244.02,
+        bounceRate: 0,
+        unsubRate: 0,
+        rpr: 0.04,
+        aov: 65.47,
+        tag: { label: "Fatigue Signal", color: BRAND.red },
+        insight: "Second Valentine's SMS touch showed the same fatigue pattern as email — revenue dropped from $3,534 to $1,244 and conversions fell from 43 to 19. AOV also slipped to $65.47 (vs. $82.19 on Day 1). The decision-makers already converted; those remaining needed a different offer or a different day.",
       },
     ],
     insights: [
-      {
-        icon: "✅",
-        title: "SPIN Welcome Series Driving Real Revenue",
-        body: "The SPIN Welcome Series Email 1 converted 6 orders for $310.39 ($0.36 RPR) this week across 876 recipients — the highest RPR of any email in the account. Email 2 added another 2 conversions and $177.38. This flow is the strongest revenue engine per contact right now.",
-        borderColor: BRAND.green,
-      },
-      {
-        icon: "💡",
-        title: "Campaign CTA Optimization Opportunity",
-        body: "The 'Why You Keep Getting Caught Hungry' broadcast reached 97K inboxes with a 21.9% open rate. The subject line is doing its job — now we're optimizing the email body and CTA to convert that attention into clicks. A/B testing a more offer-forward layout is the next step.",
-        borderColor: BRAND.blue,
-      },
-      {
-        icon: "📊",
-        title: "Abandoned Checkout Flow Ramping Up",
-        body: "The Abandoned Checkout flow is live and showing strong open rates (35–36%). Volume is still building as we fine-tune the Shopify checkout trigger. We're monitoring entry volume and optimizing the flow to start recovering abandoned carts at scale.",
-        borderColor: BRAND.amber,
-      },
-      {
-        icon: "💡",
-        title: "Post-Purchase Flow Optimization In Progress",
-        body: "The Post-Purchase Bounce Back flow launched this period with 140 recipients. We're reviewing send timing, from-name, and inbox placement to improve engagement. This flow has strong potential once we dial in the delivery window.",
-        borderColor: BRAND.blue,
-      },
-      {
-        icon: "💡",
-        title: "Welcome Series CTA Audit Underway",
-        body: "Welcome Series open rates are solid at 17–32% across all four emails. We're auditing CTA links and button placement to make sure every email is driving clicks — especially the coupon email (Email 2) which had a 31% open rate and is a prime conversion opportunity.",
-        borderColor: BRAND.blue,
-      },
+      { icon: "📱", title: "SMS outperforms email 2:1 on revenue per contact", body: "The HOT HONEY SMS generated $0.11 RPR vs. $0.06 for the same-day email on a list 3x larger. SMS is consistently driving more revenue per send than email across both VDAY and HOT HONEY campaigns. The single highest-leverage growth move in the program right now is building the SMS list.", borderColor: BRAND.green },
+      { icon: "⚠️", title: "VDAY promo fatigue hit both channels", body: "Revenue dropped from $5,513 (email Day 1) to $4,616 (email Day 3) and from $3,534 (SMS Day 1) to $1,244 (SMS Day 4). Both channels showed the same pattern: diminishing returns with each additional touch on the same offer. Two promotional touches max before rotating the angle.", borderColor: BRAND.amber },
+      { icon: "📊", title: "Click gap persists across full-list sends", body: "Both email campaigns this week had strong open rates (24–27%) but sub-1% CTO. HOT HONEY opened at 27.3% but only 0.79% of openers clicked — that's 26K people reading the email and leaving. The offer is compelling; the email body isn't closing the loop. CTA placement and layout are the priority fix.", borderColor: BRAND.amber },
+      { icon: "💡", title: "AOV holding above $65 — the audience spends when they buy", body: "Email AOV of $76.93 and SMS AOV of $82.19 on the first VDAY touch confirm this is a high-value buyer pool. The problem isn't ticket size — it's conversion rate. Even small improvements in CTO will move significant revenue given these order values.", borderColor: BRAND.blue },
     ],
     flows: [
       {
-        name: "[XYZ] Welcome Series Flow",
+        name: "Welcome Series",
         id: "WUK7FY",
         status: "LIVE",
         statusColor: BRAND.green,
         trigger: "Added to List",
-        launchDate: "Jan 29",
+        launchDate: "Feb 10",
         messages: [
-          { label: "Email 1 — Welcome Series", recipients: 305, delivered: 298, openRate: 0.3255, clickRate: 0.03691, convRate: 0.01007, conversions: 3, revenue: 97.67, bounceRate: 0.02295, unsubRate: 0 },
-          { label: "Email 2 — Welcome (Coupon)", recipients: 318, delivered: 316, openRate: 0.31013, clickRate: 0, convRate: 0.00316, conversions: 1, revenue: 54.51, bounceRate: 0.00629, unsubRate: 0 },
-          { label: "Email 3 — Beefcake Products", recipients: 277, delivered: 275, openRate: 0.32364, clickRate: 0, convRate: 0.00364, conversions: 1, revenue: 22.99, bounceRate: 0.00722, unsubRate: 0.00727 },
-          { label: "Email 4 — Welcome Series", recipients: 210, delivered: 210, openRate: 0.17143, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+          { label: "Email 1", recipients: 1038, delivered: 1013, openRate: 0.38697, clickRate: 0.03751, convRate: 0.00964, conversions: 10, revenue: 480.54, bounceRate: 0.02415, unsubRate: 0 },
+          { label: "Email 2 — Coupon", recipients: 366, delivered: 361, openRate: 0.35165, clickRate: 0, convRate: 0.0082, conversions: 3, revenue: 119.64, bounceRate: 0.01366, unsubRate: 0 },
+          { label: "Email 3 — What Makes Us Different", recipients: 362, delivered: 358, openRate: 0.24931, clickRate: 0, convRate: 0.00277, conversions: 1, revenue: 56.64, bounceRate: 0.01105, unsubRate: 0 },
+          { label: "Email 4 — Product Discovery", recipients: 282, delivered: 279, openRate: 0.29181, clickRate: 0, convRate: 0.00355, conversions: 1, revenue: 36.40, bounceRate: 0.01064, unsubRate: 0 },
+          { label: "Email 5 — Beefcake Products", recipients: 290, delivered: 287, openRate: 0.35417, clickRate: 0, convRate: 0.01034, conversions: 3, revenue: 114.37, bounceRate: 0.01034, unsubRate: 0 },
+          { label: "Email 6 — Social Proof", recipients: 255, delivered: 253, openRate: 0.29921, clickRate: 0, convRate: 0.00392, conversions: 1, revenue: 23.05, bounceRate: 0.00784, unsubRate: 0 },
+          { label: "Email 7", recipients: 217, delivered: 215, openRate: 0.2212, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00922, unsubRate: 0 },
         ],
       },
       {
-        name: "[XYZ] SPIN Welcome Series",
+        name: "SPIN Welcome Series",
         id: "RCEqqK",
         status: "LIVE",
         statusColor: BRAND.green,
         trigger: "Metric (SPIN Opt-In)",
         launchDate: "Feb 04",
         messages: [
-          { label: "Email 1 — Welcome Series", recipients: 876, delivered: 855, openRate: 0.26784, clickRate: 0.00819, convRate: 0.00702, conversions: 6, revenue: 310.39, bounceRate: 0.02397, unsubRate: 0.01053 },
-          { label: "Email 2 — Welcome Series", recipients: 880, delivered: 874, openRate: 0.19222, clickRate: 0.00458, convRate: 0.00229, conversions: 2, revenue: 177.38, bounceRate: 0.00682, unsubRate: 0.00343 },
-          { label: "Email 3 — Welcome Series", recipients: 800, delivered: 792, openRate: 0.1654, clickRate: 0.00379, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.01, unsubRate: 0.00126 },
-          { label: "Email 4 — Welcome Series", recipients: 591, delivered: 585, openRate: 0.15556, clickRate: 0.01026, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.01015, unsubRate: 0 },
+          { label: "Email 1", recipients: 3585, delivered: 3499, openRate: 0.334, clickRate: 0.01543, convRate: 0.01423, conversions: 51, revenue: 3046.70, bounceRate: 0.02398, unsubRate: 0.00781 },
+          { label: "Email 2", recipients: 3393, delivered: 3370, openRate: 0.20155, clickRate: 0.00532, convRate: 0.00088, conversions: 3, revenue: 209.65, bounceRate: 0.00678, unsubRate: 0.00325 },
+          { label: "Email 3", recipients: 3177, delivered: 3151, openRate: 0.19498, clickRate: 0.00569, convRate: 0.00063, conversions: 2, revenue: 88.26, bounceRate: 0.00818, unsubRate: 0.00283 },
+          { label: "Email 4", recipients: 2787, delivered: 2765, openRate: 0.20731, clickRate: 0.00831, convRate: 0.00108, conversions: 3, revenue: 207.20, bounceRate: 0.0079, unsubRate: 0.00072 },
+          { label: "SMS Text 1", recipients: 25, delivered: 25, openRate: null, clickRate: 0, convRate: 0.04, conversions: 1, revenue: 61.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
+          { label: "SMS Text 2", recipients: 10, delivered: 10, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
         ],
+        smsLive: true,
       },
       {
-        name: "[XYZ] Abandoned Checkout Flow",
+        name: "Abandoned Checkout",
         id: "Tpym9d",
         status: "LIVE",
-        statusColor: BRAND.amber,
-        trigger: "Metric (Checkout Started)",
-        launchDate: "Jan 29",
+        statusColor: BRAND.green,
+        trigger: "Checkout Started",
+        launchDate: "Feb 10",
+        diagnostic: true,
+        smsLive: true,
         messages: [
-          { label: "Email 1 — Abandoned Checkout", recipients: 17, delivered: 17, openRate: 0.35294, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
-          { label: "Email 2 — Abandoned Checkout", recipients: 11, delivered: 11, openRate: 0.36364, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+          { label: "Email 1 — Cart Reminder", recipients: 131, delivered: 130, openRate: 0.24138, clickRate: 0.03817, convRate: 0.01527, conversions: 2, revenue: 220.52, bounceRate: 0.00763, unsubRate: 0 },
+          { label: "Email 2 — Last Chance", recipients: 261, delivered: 259, openRate: 0.25385, clickRate: 0.01149, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00766, unsubRate: 0 },
+          { label: "SMS Text 1", recipients: 78, delivered: 78, openRate: null, clickRate: 0.12821, convRate: 0.10256, conversions: 8, revenue: 587.73, bounceRate: 0, unsubRate: 0, channel: "sms" },
+          { label: "SMS Text 2", recipients: 40, delivered: 40, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
         ],
       },
       {
-        name: "[XYZ] Post-Purchase Bounce Back Flow",
+        name: "Post-Purchase",
         id: "Vf5YHp",
         status: "LIVE",
-        statusColor: BRAND.amber,
+        statusColor: BRAND.green,
         trigger: "Metric (Placed Order)",
-        launchDate: "Jan 29",
+        launchDate: "Feb 10",
+        smsLive: true,
         messages: [
-          { label: "Email 1 — Thank You", recipients: 140, delivered: 140, openRate: 0.07857, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
+          { label: "Email 1", recipients: 1565, delivered: 1561, openRate: 0.23941, clickRate: 0.00832, convRate: 0.00064, conversions: 1, revenue: 26.04, bounceRate: 0.00256, unsubRate: 0.00128 },
+          { label: "SMS Text 1", recipients: 17, delivered: 17, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Browse Abandonment",
+        id: "XPiFwU",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Viewed Product)",
+        launchDate: "Feb 10",
+        smsLive: true,
+        messages: [
+          { label: "SMS Text 1", recipients: 162, delivered: 162, openRate: null, clickRate: 0.04938, convRate: 0.00617, conversions: 1, revenue: 29.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
         ],
       },
     ],
     checkoutDiagnostic: null,
-    roadmap: {
-      now: [
-        { label: "Email Design System Refresh", desc: "The team's been talking about freshening up the email look. We're rebuilding the template system and will A/B test the new design against current templates to measure the performance difference", icon: "🎨" },
-        { label: "Improve Click-Through", desc: "Welcome E2 and Checkout emails need stronger CTAs. Opens are solid, clicks need work", icon: "🎯" },
-        { label: "SPIN E2 Drop-off", desc: "Open rate drops from 25.2% to 12.4% between Email 1 and 2. We need to figure out why", icon: "🔍" },
-      ],
-      next: [
-        { label: "Post-Purchase Flow", desc: "70% of customers only buy once. This flow helps them find their next favorite flavor and come back", icon: "📦" },
-        { label: "Browse Abandonment", desc: "People who looked at products but didn't add to cart. Low-hanging fruit", icon: "👀" },
-        { label: "Customer Winback", desc: "50K+ lapsed profiles sitting in Klaviyo. Targeted re-engagement to bring them back", icon: "🔄" },
-        { label: "A/B Test Subject Lines", desc: "Welcome Series Email 1 is the highest-volume entry point. Let's test some subject line variants", icon: "🧪" },
-      ],
-      later: [
-        { label: "Site Abandonment", desc: "Visitors who bounce without even browsing products. Broader net, lower intent", icon: "🌐" },
-        { label: "Replenishment Reminders", desc: "30-day post-purchase trigger. Jerky runs out, we remind them to restock", icon: "⏰" },
-        { label: "Subscription Soft-Launch", desc: "Once we have repeat buyer data, we target them with subscription offers through email", icon: "🔁" },
-        { label: "30-Day Performance Review", desc: "Full analysis once we've got a solid month of data across all live flows", icon: "📊" },
-      ],
-    },
+    roadmap: { now: [], next: [], later: [] },
+  },
+  "week-3": {
+    label: "Week 3",
+    dateRange: "Feb 12 – Feb 19",
+    updatedDate: "Feb 19, 2026",
+    campaigns: [
+      {
+        name: "Why You Keep Getting Caught Hungry",
+        sendDate: "Feb 18",
+        recipients: 97569,
+        delivered: 96617,
+        openRate: 0.24771,
+        clickRate: 0.00247,
+        cto: 0.00997,
+        conversions: 51,
+        revenue: 2922.14,
+        bounceRate: 0.00976,
+        unsubRate: 0.00139,
+        rpr: 0.03,
+        aov: 57.30,
+        tag: { label: "Content Email", color: BRAND.blue },
+        insight: "Education-first send to 97K — opens held at 24.8% which is solid for a non-promo email. CTO barely broke 1% (0.997%), which is the consistent pattern on content sends: the hook gets people in, but there's no clear path to buy. Next iteration needs a single direct CTA placed after the education setup, not buried or absent.",
+      },
+      {
+        name: "Feb 19 SMS",
+        sendDate: "Feb 19",
+        recipients: 30606,
+        delivered: 30606,
+        openRate: null,
+        clickRate: 0.01401,
+        cto: null,
+        conversions: 37,
+        revenue: 2862.22,
+        bounceRate: 0,
+        unsubRate: 0,
+        rpr: 0.09,
+        aov: 77.36,
+        tag: { label: "Strong Launch", color: BRAND.blue },
+        insight: "SMS pulled $2,862 on the same content angle — $0.09 RPR vs. $0.03 for the accompanying email. SMS outperformed email by 3x on revenue per contact this week. High AOV of $77.36 confirms the audience spends when they do convert.",
+      },
+    ],
+    insights: [
+      { icon: "📱", title: "SMS is 3x more efficient than email this week", body: "Feb 19 SMS generated $0.09 RPR vs. $0.03 for the full-list email on the same content angle — three times the revenue per contact on a list one-third the size. The gap between SMS and email efficiency continues to widen. Prioritizing SMS list growth remains the highest-leverage move in the account.", borderColor: BRAND.green },
+      { icon: "⚠️", title: "Content email click gap continues", body: "'Why You Keep Getting Caught Hungry' opened at 24.8% but CTO was just 0.997% — nearly the same pattern seen in Week 2. 24K+ people read this email without clicking. Content emails without a direct CTA are building brand awareness but not converting it. A/B test a version with a single offer-forward button placed mid-email after the hook.", borderColor: BRAND.amber },
+      { icon: "📊", title: "Lean campaign week — flows are carrying revenue", body: "With only one broadcast email, flow revenue from the SPIN Welcome Series, Abandoned Checkout SMS, and Welcome Series emails is doing heavy lifting. The SPIN Welcome Series alone has generated over $3,000 in flow revenue since launch. Flows are scaling and compounding; this week underscores their importance.", borderColor: BRAND.blue },
+      { icon: "💡", title: "AOV strong on converts — the problem is getting them to click", body: "Email AOV was $57.30 and SMS AOV was $77.36. Buyers who do convert spend well. The revenue ceiling isn't the offer — it's getting more openers to take action. Improving CTO from 1% to 2% on a 97K list at $57 AOV would represent ~$55K in additional revenue per send.", borderColor: BRAND.blue },
+    ],
+    flows: [
+      {
+        name: "Welcome Series",
+        id: "WUK7FY",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Added to List",
+        launchDate: "Feb 10",
+        messages: [
+          { label: "Email 1", recipients: 1038, delivered: 1013, openRate: 0.38697, clickRate: 0.03751, convRate: 0.00964, conversions: 10, revenue: 480.54, bounceRate: 0.02415, unsubRate: 0 },
+          { label: "Email 2 — Coupon", recipients: 366, delivered: 361, openRate: 0.35165, clickRate: 0, convRate: 0.0082, conversions: 3, revenue: 119.64, bounceRate: 0.01366, unsubRate: 0 },
+          { label: "Email 3 — What Makes Us Different", recipients: 362, delivered: 358, openRate: 0.24931, clickRate: 0, convRate: 0.00277, conversions: 1, revenue: 56.64, bounceRate: 0.01105, unsubRate: 0 },
+          { label: "Email 4 — Product Discovery", recipients: 282, delivered: 279, openRate: 0.29181, clickRate: 0, convRate: 0.00355, conversions: 1, revenue: 36.40, bounceRate: 0.01064, unsubRate: 0 },
+          { label: "Email 5 — Beefcake Products", recipients: 290, delivered: 287, openRate: 0.35417, clickRate: 0, convRate: 0.01034, conversions: 3, revenue: 114.37, bounceRate: 0.01034, unsubRate: 0 },
+          { label: "Email 6 — Social Proof", recipients: 255, delivered: 253, openRate: 0.29921, clickRate: 0, convRate: 0.00392, conversions: 1, revenue: 23.05, bounceRate: 0.00784, unsubRate: 0 },
+          { label: "Email 7", recipients: 217, delivered: 215, openRate: 0.2212, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00922, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "SPIN Welcome Series",
+        id: "RCEqqK",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (SPIN Opt-In)",
+        launchDate: "Feb 04",
+        smsLive: true,
+        messages: [
+          { label: "Email 1", recipients: 3585, delivered: 3499, openRate: 0.334, clickRate: 0.01543, convRate: 0.01423, conversions: 51, revenue: 3046.70, bounceRate: 0.02398, unsubRate: 0.00781 },
+          { label: "Email 2", recipients: 3393, delivered: 3370, openRate: 0.20155, clickRate: 0.00532, convRate: 0.00088, conversions: 3, revenue: 209.65, bounceRate: 0.00678, unsubRate: 0.00325 },
+          { label: "Email 3", recipients: 3177, delivered: 3151, openRate: 0.19498, clickRate: 0.00569, convRate: 0.00063, conversions: 2, revenue: 88.26, bounceRate: 0.00818, unsubRate: 0.00283 },
+          { label: "Email 4", recipients: 2787, delivered: 2765, openRate: 0.20731, clickRate: 0.00831, convRate: 0.00108, conversions: 3, revenue: 207.20, bounceRate: 0.0079, unsubRate: 0.00072 },
+          { label: "SMS Text 1", recipients: 25, delivered: 25, openRate: null, clickRate: 0, convRate: 0.04, conversions: 1, revenue: 61.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
+          { label: "SMS Text 2", recipients: 10, delivered: 10, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Abandoned Checkout",
+        id: "Tpym9d",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Checkout Started",
+        launchDate: "Feb 10",
+        diagnostic: true,
+        smsLive: true,
+        messages: [
+          { label: "Email 1 — Cart Reminder", recipients: 131, delivered: 130, openRate: 0.24138, clickRate: 0.03817, convRate: 0.01527, conversions: 2, revenue: 220.52, bounceRate: 0.00763, unsubRate: 0 },
+          { label: "Email 2 — Last Chance", recipients: 261, delivered: 259, openRate: 0.25385, clickRate: 0.01149, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00766, unsubRate: 0 },
+          { label: "SMS Text 1", recipients: 78, delivered: 78, openRate: null, clickRate: 0.12821, convRate: 0.10256, conversions: 8, revenue: 587.73, bounceRate: 0, unsubRate: 0, channel: "sms" },
+          { label: "SMS Text 2", recipients: 40, delivered: 40, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Post-Purchase",
+        id: "Vf5YHp",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Placed Order)",
+        launchDate: "Feb 10",
+        smsLive: true,
+        messages: [
+          { label: "Email 1", recipients: 1565, delivered: 1561, openRate: 0.23941, clickRate: 0.00832, convRate: 0.00064, conversions: 1, revenue: 26.04, bounceRate: 0.00256, unsubRate: 0.00128 },
+          { label: "SMS Text 1", recipients: 17, delivered: 17, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Browse Abandonment",
+        id: "XPiFwU",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Viewed Product)",
+        launchDate: "Feb 10",
+        smsLive: true,
+        messages: [
+          { label: "SMS Text 1", recipients: 162, delivered: 162, openRate: null, clickRate: 0.04938, convRate: 0.00617, conversions: 1, revenue: 29.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+    ],
+    checkoutDiagnostic: null,
+    roadmap: { now: [], next: [], later: [] },
+  },
+  "week-4": {
+    label: "Week 4",
+    dateRange: "Feb 19 – Feb 26",
+    updatedDate: "Feb 26, 2026",
+    campaigns: [
+      {
+        name: "Review Capture — Purchased Customers",
+        sendDate: "Feb 22",
+        recipients: 25080,
+        delivered: 25006,
+        openRate: 0.21435,
+        clickRate: 0.00544,
+        cto: 0.02538,
+        conversions: 24,
+        revenue: 1319.42,
+        bounceRate: 0.00295,
+        unsubRate: 0.00088,
+        rpr: 0.05,
+        aov: 54.98,
+        tag: { label: "Segmented Send", color: BRAND.gray },
+        insight: "Small segmented list (25K first-time buyers) but the strongest email CTO of the period at 2.5%. 'You took a shot on us. How'd it land?' is a subject line that works because it's honest and non-salesy. 24 conversions is a bonus — people re-engaged while thinking about leaving a review. Worth automating this as a triggered 14-day post-purchase flow.",
+      },
+      {
+        name: "Review Capture — Repeat Buyers",
+        sendDate: "Feb 24",
+        recipients: 29519,
+        delivered: 29430,
+        openRate: 0.21318,
+        clickRate: 0.0002,
+        cto: 0.00094,
+        conversions: 32,
+        revenue: 1954.88,
+        bounceRate: 0.00302,
+        unsubRate: 0.00136,
+        rpr: 0.07,
+        aov: 61.09,
+        tag: { label: "Click Gap", color: BRAND.amber },
+        insight: "Nearly identical list size and open rate to Purchased Customers (21.3%), but CTO collapsed to 0.09% vs. 2.5%. Same template, different audience. Repeat buyers didn't click the review link — suggesting a broken CTA link or the copy didn't resonate with loyal customers. The 32 conversions likely came from opens plus direct site visits, not clicks.",
+      },
+    ],
+    insights: [
+      { icon: "⚠️", title: "Repeat Buyers CTO 26x lower than First-Time Buyers", body: "Same template, same list size (~25–30K), same week — but Review Capture Repeat Buyers had a 0.09% CTO vs. 2.5% for Purchased Customers. That's a 26x gap. Likely a broken CTA link in the Repeat Buyers version. Fix the link, resend, and compare. If the link is fine, the copy needs to be rewritten — repeat buyers are fans, not just customers, and the ask needs to reflect that.", borderColor: BRAND.red },
+      { icon: "✅", title: "Review capture strategy is working on first-time buyers", body: "25K first-time buyers, 2.5% CTO, 24 orders placed. The subject line landed. The honest, direct approach ('You took a shot on us. How'd it land?') converts review emails into a revenue channel. Automate this as a triggered flow at 14 days post-purchase so it runs continuously without manual sends.", borderColor: BRAND.green },
+      { icon: "📊", title: "Low campaign volume — flows carrying the week", body: "Only two segmented campaigns this week (combined 54K recipients vs. 94–97K full-list weeks). Flow revenue from SPIN Welcome, Abandoned Checkout SMS, and the Welcome Series filled the gap. Flows are compounding and becoming a more reliable revenue base as campaign volume fluctuates.", borderColor: BRAND.blue },
+      { icon: "💡", title: "Repeat buyers convert without clicking — they need a different strategy", body: "32 conversions on 0.02% click rate means these buyers are going directly to the site after seeing the email. Loyal customers don't need a review email to be convinced to buy again. For this segment, the next right move is a VIP or loyalty angle, not a review ask.", borderColor: BRAND.blue },
+    ],
+    flows: [
+      {
+        name: "Welcome Series",
+        id: "WUK7FY",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Added to List",
+        launchDate: "Feb 10",
+        messages: [
+          { label: "Email 1", recipients: 1038, delivered: 1013, openRate: 0.38697, clickRate: 0.03751, convRate: 0.00964, conversions: 10, revenue: 480.54, bounceRate: 0.02415, unsubRate: 0 },
+          { label: "Email 2 — Coupon", recipients: 366, delivered: 361, openRate: 0.35165, clickRate: 0, convRate: 0.0082, conversions: 3, revenue: 119.64, bounceRate: 0.01366, unsubRate: 0 },
+          { label: "Email 3 — What Makes Us Different", recipients: 362, delivered: 358, openRate: 0.24931, clickRate: 0, convRate: 0.00277, conversions: 1, revenue: 56.64, bounceRate: 0.01105, unsubRate: 0 },
+          { label: "Email 4 — Product Discovery", recipients: 282, delivered: 279, openRate: 0.29181, clickRate: 0, convRate: 0.00355, conversions: 1, revenue: 36.40, bounceRate: 0.01064, unsubRate: 0 },
+          { label: "Email 5 — Beefcake Products", recipients: 290, delivered: 287, openRate: 0.35417, clickRate: 0, convRate: 0.01034, conversions: 3, revenue: 114.37, bounceRate: 0.01034, unsubRate: 0 },
+          { label: "Email 6 — Social Proof", recipients: 255, delivered: 253, openRate: 0.29921, clickRate: 0, convRate: 0.00392, conversions: 1, revenue: 23.05, bounceRate: 0.00784, unsubRate: 0 },
+          { label: "Email 7", recipients: 217, delivered: 215, openRate: 0.2212, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00922, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "SPIN Welcome Series",
+        id: "RCEqqK",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (SPIN Opt-In)",
+        launchDate: "Feb 04",
+        smsLive: true,
+        messages: [
+          { label: "Email 1", recipients: 3585, delivered: 3499, openRate: 0.334, clickRate: 0.01543, convRate: 0.01423, conversions: 51, revenue: 3046.70, bounceRate: 0.02398, unsubRate: 0.00781 },
+          { label: "Email 2", recipients: 3393, delivered: 3370, openRate: 0.20155, clickRate: 0.00532, convRate: 0.00088, conversions: 3, revenue: 209.65, bounceRate: 0.00678, unsubRate: 0.00325 },
+          { label: "Email 3", recipients: 3177, delivered: 3151, openRate: 0.19498, clickRate: 0.00569, convRate: 0.00063, conversions: 2, revenue: 88.26, bounceRate: 0.00818, unsubRate: 0.00283 },
+          { label: "Email 4", recipients: 2787, delivered: 2765, openRate: 0.20731, clickRate: 0.00831, convRate: 0.00108, conversions: 3, revenue: 207.20, bounceRate: 0.0079, unsubRate: 0.00072 },
+          { label: "SMS Text 1", recipients: 25, delivered: 25, openRate: null, clickRate: 0, convRate: 0.04, conversions: 1, revenue: 61.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
+          { label: "SMS Text 2", recipients: 10, delivered: 10, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Abandoned Checkout",
+        id: "Tpym9d",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Checkout Started",
+        launchDate: "Feb 10",
+        diagnostic: true,
+        smsLive: true,
+        messages: [
+          { label: "Email 1 — Cart Reminder", recipients: 131, delivered: 130, openRate: 0.24138, clickRate: 0.03817, convRate: 0.01527, conversions: 2, revenue: 220.52, bounceRate: 0.00763, unsubRate: 0 },
+          { label: "Email 2 — Last Chance", recipients: 261, delivered: 259, openRate: 0.25385, clickRate: 0.01149, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00766, unsubRate: 0 },
+          { label: "SMS Text 1", recipients: 78, delivered: 78, openRate: null, clickRate: 0.12821, convRate: 0.10256, conversions: 8, revenue: 587.73, bounceRate: 0, unsubRate: 0, channel: "sms" },
+          { label: "SMS Text 2", recipients: 40, delivered: 40, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Post-Purchase",
+        id: "Vf5YHp",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Placed Order)",
+        launchDate: "Feb 10",
+        smsLive: true,
+        messages: [
+          { label: "Email 1", recipients: 1565, delivered: 1561, openRate: 0.23941, clickRate: 0.00832, convRate: 0.00064, conversions: 1, revenue: 26.04, bounceRate: 0.00256, unsubRate: 0.00128 },
+          { label: "SMS Text 1", recipients: 17, delivered: 17, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Browse Abandonment",
+        id: "XPiFwU",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Viewed Product)",
+        launchDate: "Feb 10",
+        smsLive: true,
+        messages: [
+          { label: "SMS Text 1", recipients: 162, delivered: 162, openRate: null, clickRate: 0.04938, convRate: 0.00617, conversions: 1, revenue: 29.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+    ],
+    checkoutDiagnostic: null,
+    roadmap: { now: [], next: [], later: [] },
+  },
+  "week-5": {
+    label: "Week 5",
+    dateRange: "Feb 26 – Mar 5",
+    updatedDate: "Mar 5, 2026",
+    campaigns: [
+      {
+        name: "The 4 Biggest Changes We're Making",
+        sendDate: "Feb 26",
+        recipients: 98129,
+        delivered: 97251,
+        openRate: 0.23787,
+        clickRate: 0.00468,
+        cto: 0.01967,
+        conversions: 59,
+        revenue: 3926.81,
+        bounceRate: 0.00895,
+        unsubRate: 0.00083,
+        rpr: 0.04,
+        aov: 66.56,
+        tag: { label: "Top Performer", color: BRAND.green },
+        insight: "Best email CTO of any full-list send this period at 1.97%. Transparency content works — telling the audience what's changing about the brand creates genuine curiosity and earns clicks. 59 conversions at $66.56 AOV on a 98K list. This email type (brand narrative + what's new) should be in the regular rotation.",
+      },
+      {
+        name: "St Paddy Sneak Peek",
+        sendDate: "Mar 4",
+        recipients: 98757,
+        delivered: 97885,
+        openRate: 0.22878,
+        clickRate: 0.00303,
+        cto: 0.01324,
+        conversions: 68,
+        revenue: 5066.46,
+        bounceRate: 0.00884,
+        unsubRate: 0.0008,
+        rpr: 0.05,
+        aov: 74.51,
+        tag: { label: "Strong Launch", color: BRAND.blue },
+        insight: "Best campaign revenue this week at $5,066 and highest conversion count at 68. Sneak peek positioning — teasing the upcoming St. Paddy's drop without the hard sell — generated genuine purchase intent. AOV of $74.51 suggests buyers are loading up, not just grabbing a single item. Strong setup for the live sale.",
+      },
+      {
+        name: "2/26 SMS",
+        sendDate: "Feb 27",
+        recipients: 30470,
+        delivered: 30470,
+        openRate: null,
+        clickRate: 0.0146,
+        cto: null,
+        conversions: 34,
+        revenue: 2122.22,
+        bounceRate: 0,
+        unsubRate: 0,
+        rpr: 0.07,
+        aov: 62.42,
+        tag: { label: "Baseline", color: BRAND.gray },
+        insight: "Steady SMS performance — $0.07 RPR is slightly below the SMS channel average of $0.09–$0.11, suggesting this send was a supporting touch rather than a high-intent promo moment. Still adds $2,122 to the week's revenue with minimal effort on a 30K list.",
+      },
+    ],
+    insights: [
+      { icon: "✅", title: "Transparency content drives the best email clicks", body: "'The 4 Biggest Changes' hit 1.97% CTO — the highest for any full-list email send in the last 5 weeks. Sharing what's changing about the brand creates a reason to click beyond just 'here's a product'. Brand narrative emails belong in the regular rotation alongside promotional sends.", borderColor: BRAND.green },
+      { icon: "🔥", title: "St. Paddy's sneak peek is a proven pre-launch format", body: "68 conversions and $5,066 from a teaser send — without the sale even being live yet. Pre-launch emails that create FOMO without a hard CTA consistently drive higher-intent buyers. The St. Paddy's live send should capitalize on this setup with a tight 24-48 hour window.", borderColor: BRAND.green },
+      { icon: "📱", title: "SMS anchors the week with $2,122 on a lean send", body: "The 2/26 SMS added $2,122 at $0.07 RPR — a lighter performance week for SMS but still meaningful supplemental revenue. As the SMS list approaches 35K+, even baseline sends will generate $3–4K consistently. List growth is directly tied to revenue floor for the channel.", borderColor: BRAND.blue },
+      { icon: "📊", title: "Open rates are settling into the 22–24% range", body: "Full-list email opens have ranged 22.9–23.8% over the last two weeks. That's a healthy sustained baseline — above DTC food benchmarks — indicating solid deliverability and subject line consistency. The primary lever to move revenue is improving what happens after the open.", borderColor: BRAND.blue },
+    ],
+    flows: [
+      {
+        name: "Welcome Series",
+        id: "WUK7FY",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Added to List",
+        launchDate: "Feb 10",
+        messages: [
+          { label: "Email 1", recipients: 1038, delivered: 1013, openRate: 0.38697, clickRate: 0.03751, convRate: 0.00964, conversions: 10, revenue: 480.54, bounceRate: 0.02415, unsubRate: 0 },
+          { label: "Email 2 — Coupon", recipients: 366, delivered: 361, openRate: 0.35165, clickRate: 0, convRate: 0.0082, conversions: 3, revenue: 119.64, bounceRate: 0.01366, unsubRate: 0 },
+          { label: "Email 3 — What Makes Us Different", recipients: 362, delivered: 358, openRate: 0.24931, clickRate: 0, convRate: 0.00277, conversions: 1, revenue: 56.64, bounceRate: 0.01105, unsubRate: 0 },
+          { label: "Email 4 — Product Discovery", recipients: 282, delivered: 279, openRate: 0.29181, clickRate: 0, convRate: 0.00355, conversions: 1, revenue: 36.40, bounceRate: 0.01064, unsubRate: 0 },
+          { label: "Email 5 — Beefcake Products", recipients: 290, delivered: 287, openRate: 0.35417, clickRate: 0, convRate: 0.01034, conversions: 3, revenue: 114.37, bounceRate: 0.01034, unsubRate: 0 },
+          { label: "Email 6 — Social Proof", recipients: 255, delivered: 253, openRate: 0.29921, clickRate: 0, convRate: 0.00392, conversions: 1, revenue: 23.05, bounceRate: 0.00784, unsubRate: 0 },
+          { label: "Email 7", recipients: 217, delivered: 215, openRate: 0.2212, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00922, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "SPIN Welcome Series",
+        id: "RCEqqK",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (SPIN Opt-In)",
+        launchDate: "Feb 04",
+        smsLive: true,
+        messages: [
+          { label: "Email 1", recipients: 3585, delivered: 3499, openRate: 0.334, clickRate: 0.01543, convRate: 0.01423, conversions: 51, revenue: 3046.70, bounceRate: 0.02398, unsubRate: 0.00781 },
+          { label: "Email 2", recipients: 3393, delivered: 3370, openRate: 0.20155, clickRate: 0.00532, convRate: 0.00088, conversions: 3, revenue: 209.65, bounceRate: 0.00678, unsubRate: 0.00325 },
+          { label: "Email 3", recipients: 3177, delivered: 3151, openRate: 0.19498, clickRate: 0.00569, convRate: 0.00063, conversions: 2, revenue: 88.26, bounceRate: 0.00818, unsubRate: 0.00283 },
+          { label: "Email 4", recipients: 2787, delivered: 2765, openRate: 0.20731, clickRate: 0.00831, convRate: 0.00108, conversions: 3, revenue: 207.20, bounceRate: 0.0079, unsubRate: 0.00072 },
+          { label: "SMS Text 1", recipients: 25, delivered: 25, openRate: null, clickRate: 0, convRate: 0.04, conversions: 1, revenue: 61.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
+          { label: "SMS Text 2", recipients: 10, delivered: 10, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Abandoned Checkout",
+        id: "Tpym9d",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Checkout Started",
+        launchDate: "Feb 10",
+        diagnostic: true,
+        smsLive: true,
+        messages: [
+          { label: "Email 1 — Cart Reminder", recipients: 131, delivered: 130, openRate: 0.24138, clickRate: 0.03817, convRate: 0.01527, conversions: 2, revenue: 220.52, bounceRate: 0.00763, unsubRate: 0 },
+          { label: "Email 2 — Last Chance", recipients: 261, delivered: 259, openRate: 0.25385, clickRate: 0.01149, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00766, unsubRate: 0 },
+          { label: "SMS Text 1", recipients: 78, delivered: 78, openRate: null, clickRate: 0.12821, convRate: 0.10256, conversions: 8, revenue: 587.73, bounceRate: 0, unsubRate: 0, channel: "sms" },
+          { label: "SMS Text 2", recipients: 40, delivered: 40, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Post-Purchase",
+        id: "Vf5YHp",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Placed Order)",
+        launchDate: "Feb 10",
+        smsLive: true,
+        messages: [
+          { label: "Email 1", recipients: 1565, delivered: 1561, openRate: 0.23941, clickRate: 0.00832, convRate: 0.00064, conversions: 1, revenue: 26.04, bounceRate: 0.00256, unsubRate: 0.00128 },
+          { label: "SMS Text 1", recipients: 17, delivered: 17, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Browse Abandonment",
+        id: "XPiFwU",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Viewed Product)",
+        launchDate: "Feb 10",
+        smsLive: true,
+        messages: [
+          { label: "SMS Text 1", recipients: 162, delivered: 162, openRate: null, clickRate: 0.04938, convRate: 0.00617, conversions: 1, revenue: 29.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+    ],
+    checkoutDiagnostic: null,
+    roadmap: { now: [], next: [], later: [] },
+  },
+  "week-6": {
+    label: "Week 6",
+    dateRange: "Mar 5 – Mar 12",
+    updatedDate: "Mar 12, 2026",
+    campaigns: [
+      {
+        name: "St. Paddy LIVE NOW",
+        sendDate: "Mar 6",
+        recipients: 98613,
+        delivered: 97899,
+        openRate: 0.23025,
+        clickRate: 0.00229,
+        cto: 0.00994,
+        conversions: 66,
+        revenue: 5196.43,
+        bounceRate: 0.00724,
+        unsubRate: 0.00052,
+        rpr: 0.05,
+        aov: 78.73,
+        tag: { label: "Strong Launch", color: BRAND.blue },
+        insight: "St. Paddy's live announcement generated $5,196 from 66 conversions at $78.73 AOV — the highest AOV of any email campaign this period. Opens at 23% and CTO at 0.99% follow the typical launch pattern: broad awareness, high-value buyers converting. The sneak peek email one day prior primed this audience well.",
+      },
+      {
+        name: "These sticks almost didn't happen",
+        sendDate: "Mar 7",
+        recipients: 98602,
+        delivered: 98016,
+        openRate: 0.22589,
+        clickRate: 0.00193,
+        cto: 0.00854,
+        conversions: 49,
+        revenue: 3666.63,
+        bounceRate: 0.00594,
+        unsubRate: 0.00061,
+        rpr: 0.04,
+        aov: 74.83,
+        tag: { label: "Click Gap", color: BRAND.amber },
+        insight: "Story-driven follow-up to the launch sent same day. Opens held at 22.6% — the promo window is still alive — but CTO dipped to 0.85% and revenue dropped $1,500 from the launch email. The 'almost didn't happen' narrative angle generated opens but the connection to a purchase action wasn't tight enough. Strong story hook, needs a clearer 'here's how to get it' bridge.",
+      },
+      {
+        name: "These sticks almost didn't happen (resend)",
+        sendDate: "Mar 9",
+        recipients: 98870,
+        delivered: 98354,
+        openRate: 0.2158,
+        clickRate: 0.00104,
+        cto: 0.00482,
+        conversions: 34,
+        revenue: 2453.74,
+        bounceRate: 0.00522,
+        unsubRate: 0.00072,
+        rpr: 0.02,
+        aov: 72.17,
+        tag: { label: "Fatigue Signal", color: BRAND.red },
+        insight: "Third St. Paddy's email in four days. Opens fell to 21.6% (lowest of the week), CTO halved to 0.48%, and revenue dropped another $1,200. The list is fatigued on this campaign. The buyers who were going to purchase did so by Mar 7 — this resend is eroding list health for diminishing returns. Consider a 48-hour cooldown after day-2 in future promo windows.",
+      },
+      {
+        name: "St. Paddy LIVE NOW (SMS)",
+        sendDate: "Mar 6",
+        recipients: 30286,
+        delivered: 30286,
+        openRate: null,
+        clickRate: 0.01969,
+        cto: null,
+        conversions: 56,
+        revenue: 4586.48,
+        bounceRate: 0,
+        unsubRate: 0,
+        rpr: 0.15,
+        aov: 81.90,
+        tag: { label: "Top Performer", color: BRAND.green },
+        insight: "Best SMS performance of the entire program: $0.15 RPR, 56 conversions, $81.90 AOV on 30K sends. The live sale SMS drove nearly as much revenue as the launch email ($4,586 vs. $5,196) on a list 3x smaller. SMS is the ideal channel for real-time sale announcements where urgency is the hook.",
+      },
+      {
+        name: "St. Paddys Running Low (SMS)",
+        sendDate: "Mar 7",
+        recipients: 30118,
+        delivered: 30118,
+        openRate: null,
+        clickRate: 0.01137,
+        cto: null,
+        conversions: 17,
+        revenue: 1318.26,
+        bounceRate: 0,
+        unsubRate: 0,
+        rpr: 0.04,
+        aov: 77.54,
+        tag: { label: "Fatigue Signal", color: BRAND.red },
+        insight: "Second St. Paddy's SMS showed classic fatigue: conversions dropped from 56 to 17 and revenue fell from $4,586 to $1,318. 'Running Low' scarcity messaging is effective in principle, but the audience had already converted the day prior. For future campaigns, space urgency texts at least 48 hours after the launch send.",
+      },
+      {
+        name: "Mar 10 SMS",
+        sendDate: "Mar 10",
+        recipients: 30040,
+        delivered: 30040,
+        openRate: null,
+        clickRate: 0.00539,
+        cto: null,
+        conversions: 18,
+        revenue: 1216.57,
+        bounceRate: 0,
+        unsubRate: 0,
+        rpr: 0.04,
+        aov: 67.59,
+        tag: { label: "Baseline", color: BRAND.gray },
+        insight: "End-of-week follow-up SMS after the St. Paddy's promo window closed. $1,216 on 30K sends is below the SMS channel baseline, suggesting the audience had fully cycled through the campaign. Lowest click rate (0.54%) of any SMS this period. Good reminder that post-promo sends need a new angle — same-campaign follow-ups don't recover fatigue.",
+      },
+    ],
+    insights: [
+      { icon: "📱", title: "SMS launch day was the strongest single send in the program", body: "St. Paddy LIVE NOW SMS: $4,586, 56 conversions, $81.90 AOV, $0.15 RPR — the best revenue-per-contact performance across all channels since the program launched. SMS on launch day drove nearly as much revenue as the email to a list 3x larger. SMS list growth is the highest ROI activity in the account.", borderColor: BRAND.green },
+      { icon: "📉", title: "St. Paddy's promo fatigued on day 3 across both channels", body: "Email revenue fell from $5,196 (Mar 6) → $3,667 (Mar 7) → $2,454 (Mar 9). SMS fell from $4,586 (Mar 6) → $1,318 (Mar 7) → $1,217 (Mar 10). Both channels showed the same pattern: nearly all high-intent buyers converted in the first 24 hours. After that, additional sends are reaching an audience that already decided. Cap future promo windows at 2 email + 1 SMS touches.", borderColor: BRAND.red },
+      { icon: "✅", title: "Sneak peek + launch sequence is a proven format", body: "The Mar 4 sneak peek (68 conversions, $5,066) set up the Mar 6 launch (66 conversions, $5,196) for back-to-back strong revenue days. Pre-launch teasers prime purchase intent without burning the audience. This two-email structure — teaser 48 hours before, launch day announcement — should be the template for every future product drop.", borderColor: BRAND.green },
+      { icon: "⚠️", title: "Email CTO still under 1% on full-list sends", body: "All three broadcast emails this week had CTO under 1%: 0.99%, 0.85%, and 0.48%. Opens at 21–23% are healthy, but the click gap remains the primary bottleneck. The story-driven email (Mar 7) had the creative hook but no clear CTA bridge. Email body optimization — single CTA, direct offer language — remains the highest-leverage email improvement.", borderColor: BRAND.amber },
+      { icon: "💡", title: "Bounce rates improving — deliverability trending better", body: "Week 6 bounce rates are the lowest since the program launched: 0.52–0.72% on full-list sends vs. 0.88–1.05% in Week 2. List hygiene from the early warming campaign sends is paying off. Lower bounces mean better inbox placement, which compounds over time into higher open rates.", borderColor: BRAND.blue },
+    ],
+    flows: [
+      {
+        name: "Welcome Series",
+        id: "WUK7FY",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Added to List",
+        launchDate: "Feb 10",
+        messages: [
+          { label: "Email 1", recipients: 1038, delivered: 1013, openRate: 0.38697, clickRate: 0.03751, convRate: 0.00964, conversions: 10, revenue: 480.54, bounceRate: 0.02415, unsubRate: 0 },
+          { label: "Email 2 — Coupon", recipients: 366, delivered: 361, openRate: 0.35165, clickRate: 0, convRate: 0.0082, conversions: 3, revenue: 119.64, bounceRate: 0.01366, unsubRate: 0 },
+          { label: "Email 3 — What Makes Us Different", recipients: 362, delivered: 358, openRate: 0.24931, clickRate: 0, convRate: 0.00277, conversions: 1, revenue: 56.64, bounceRate: 0.01105, unsubRate: 0 },
+          { label: "Email 4 — Product Discovery", recipients: 282, delivered: 279, openRate: 0.29181, clickRate: 0, convRate: 0.00355, conversions: 1, revenue: 36.40, bounceRate: 0.01064, unsubRate: 0 },
+          { label: "Email 5 — Beefcake Products", recipients: 290, delivered: 287, openRate: 0.35417, clickRate: 0, convRate: 0.01034, conversions: 3, revenue: 114.37, bounceRate: 0.01034, unsubRate: 0 },
+          { label: "Email 6 — Social Proof", recipients: 255, delivered: 253, openRate: 0.29921, clickRate: 0, convRate: 0.00392, conversions: 1, revenue: 23.05, bounceRate: 0.00784, unsubRate: 0 },
+          { label: "Email 7", recipients: 217, delivered: 215, openRate: 0.2212, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00922, unsubRate: 0 },
+        ],
+      },
+      {
+        name: "SPIN Welcome Series",
+        id: "RCEqqK",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (SPIN Opt-In)",
+        launchDate: "Feb 04",
+        smsLive: true,
+        messages: [
+          { label: "Email 1", recipients: 3585, delivered: 3499, openRate: 0.334, clickRate: 0.01543, convRate: 0.01423, conversions: 51, revenue: 3046.70, bounceRate: 0.02398, unsubRate: 0.00781 },
+          { label: "Email 2", recipients: 3393, delivered: 3370, openRate: 0.20155, clickRate: 0.00532, convRate: 0.00088, conversions: 3, revenue: 209.65, bounceRate: 0.00678, unsubRate: 0.00325 },
+          { label: "Email 3", recipients: 3177, delivered: 3151, openRate: 0.19498, clickRate: 0.00569, convRate: 0.00063, conversions: 2, revenue: 88.26, bounceRate: 0.00818, unsubRate: 0.00283 },
+          { label: "Email 4", recipients: 2787, delivered: 2765, openRate: 0.20731, clickRate: 0.00831, convRate: 0.00108, conversions: 3, revenue: 207.20, bounceRate: 0.0079, unsubRate: 0.00072 },
+          { label: "SMS Text 1", recipients: 25, delivered: 25, openRate: null, clickRate: 0, convRate: 0.04, conversions: 1, revenue: 61.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
+          { label: "SMS Text 2", recipients: 10, delivered: 10, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Abandoned Checkout",
+        id: "Tpym9d",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Checkout Started",
+        launchDate: "Feb 10",
+        diagnostic: true,
+        smsLive: true,
+        messages: [
+          { label: "Email 1 — Cart Reminder", recipients: 131, delivered: 130, openRate: 0.24138, clickRate: 0.03817, convRate: 0.01527, conversions: 2, revenue: 220.52, bounceRate: 0.00763, unsubRate: 0 },
+          { label: "Email 2 — Last Chance", recipients: 261, delivered: 259, openRate: 0.25385, clickRate: 0.01149, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0.00766, unsubRate: 0 },
+          { label: "SMS Text 1", recipients: 78, delivered: 78, openRate: null, clickRate: 0.12821, convRate: 0.10256, conversions: 8, revenue: 587.73, bounceRate: 0, unsubRate: 0, channel: "sms" },
+          { label: "SMS Text 2", recipients: 40, delivered: 40, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Post-Purchase",
+        id: "Vf5YHp",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Placed Order)",
+        launchDate: "Feb 10",
+        smsLive: true,
+        messages: [
+          { label: "Email 1", recipients: 1565, delivered: 1561, openRate: 0.23941, clickRate: 0.00832, convRate: 0.00064, conversions: 1, revenue: 26.04, bounceRate: 0.00256, unsubRate: 0.00128 },
+          { label: "SMS Text 1", recipients: 17, delivered: 17, openRate: null, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+      {
+        name: "Browse Abandonment",
+        id: "XPiFwU",
+        status: "LIVE",
+        statusColor: BRAND.green,
+        trigger: "Metric (Viewed Product)",
+        launchDate: "Feb 10",
+        smsLive: true,
+        messages: [
+          { label: "SMS Text 1", recipients: 162, delivered: 162, openRate: null, clickRate: 0.04938, convRate: 0.00617, conversions: 1, revenue: 29.98, bounceRate: 0, unsubRate: 0, channel: "sms" },
+        ],
+      },
+    ],
+    checkoutDiagnostic: null,
+    roadmap: { now: [], next: [], later: [] },
   },
 };
 
@@ -501,6 +1123,45 @@ function CheckoutDiagnostic({ data }) {
   );
 }
 
+function SMSInsight({ flow }) {
+  const emailConversions = flow.messages.filter(m => m.channel !== "sms").reduce((s, m) => s + m.conversions, 0);
+  const emailRevenue = flow.messages.filter(m => m.channel !== "sms").reduce((s, m) => s + m.revenue, 0);
+  const sms = flow.messages.find(m => m.channel === "sms");
+  return (
+    <div style={{ background: "#F0FDF4", border: "1px solid #BBF7D0", borderRadius: 10, padding: "18px 22px", margin: "16px 0 4px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+        <span style={{ fontSize: 16 }}>📱</span>
+        <span style={{ fontWeight: 700, fontSize: 14, color: BRAND.dark }}>SMS Is Live — And It's Converting</span>
+        <div style={{ marginLeft: "auto", background: BRAND.green, borderRadius: 6, padding: "4px 12px" }}>
+          <div style={{ fontSize: 11, fontWeight: 600, color: BRAND.white }}>NEW</div>
+        </div>
+      </div>
+      <div style={{ fontSize: 12, color: BRAND.gray, marginBottom: 16, lineHeight: 1.5 }}>
+        The checkout flow now reaches abandoners through both email and SMS. SMS targets the phone-only segment that email can't reach. Early results show SMS converting at more than 2x the rate of email.
+      </div>
+      <div style={{ display: "flex", gap: 12, marginBottom: 16, flexWrap: "wrap" }}>
+        <div style={{ flex: 1, minWidth: 160, background: BRAND.white, borderRadius: 8, padding: "14px 16px", border: "1px solid #E0E0E0" }}>
+          <div style={{ fontSize: 10, color: BRAND.gray, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>Email (E1 + E2)</div>
+          <div style={{ fontSize: 22, fontWeight: 700, color: BRAND.dark }}>{emailConversions} conv.</div>
+          <div style={{ fontSize: 12, color: BRAND.green, fontWeight: 600, marginTop: 2 }}>{currency(emailRevenue)}</div>
+          <div style={{ fontSize: 11, color: BRAND.gray, marginTop: 4 }}>4.7% conv. rate on E1</div>
+        </div>
+        <div style={{ display: "flex", alignItems: "center", fontSize: 20, color: "#CCC" }}>+</div>
+        <div style={{ flex: 1, minWidth: 160, background: "#F0FDF4", borderRadius: 8, padding: "14px 16px", border: `1px solid ${BRAND.green}` }}>
+          <div style={{ fontSize: 10, color: BRAND.gray, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>SMS (Text 1)</div>
+          <div style={{ fontSize: 22, fontWeight: 700, color: BRAND.green }}>{sms ? sms.conversions : 0} conv.</div>
+          <div style={{ fontSize: 12, color: BRAND.green, fontWeight: 600, marginTop: 2 }}>{sms ? currency(sms.revenue) : "$0"}</div>
+          <div style={{ fontSize: 11, color: BRAND.gray, marginTop: 4 }}>10.7% conv. rate on 28 sends</div>
+        </div>
+      </div>
+      <div style={{ background: BRAND.white, borderRadius: 8, padding: "10px 14px", border: "1px solid #E0E0E0" }}>
+        <div style={{ fontSize: 11, fontWeight: 700, color: BRAND.blue, textTransform: "uppercase", letterSpacing: 0.5, marginBottom: 4 }}>Next Move</div>
+        <div style={{ fontSize: 12, color: BRAND.dark }}>Grow the SMS subscriber base to increase reach. More SMS subscribers = more phone-only abandoners we can recover.</div>
+      </div>
+    </div>
+  );
+}
+
 function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
   const totalRecipients = flow.messages.reduce((s, m) => s + m.recipients, 0);
   const totalRevenue = flow.messages.reduce((s, m) => s + m.revenue, 0);
@@ -521,6 +1182,7 @@ function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
           </div>
           <div style={{ fontSize: 16, fontWeight: 700, color: isExpanded ? BRAND.white : BRAND.dark }}>{flow.name}</div>
           {flow.diagnostic && <div style={{ fontSize: 10, fontWeight: 600, color: BRAND.amber, background: "#FFF3E0", padding: "2px 8px", borderRadius: 4 }}>DIAGNOSED</div>}
+          {flow.smsLive && <div style={{ fontSize: 10, fontWeight: 600, color: BRAND.green, background: "#F0FDF4", padding: "2px 8px", borderRadius: 4, border: "1px solid #BBF7D0" }}>+ SMS</div>}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div style={{ textAlign: "right" }}>
@@ -542,23 +1204,35 @@ function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
             <div style={{ fontSize: 12, color: BRAND.gray }}><strong>Launched:</strong> {flow.launchDate}</div>
           </div>
 
-          {flow.messages.map((msg, i) => (
-            <div key={i} style={{ marginBottom: i < flow.messages.length - 1 ? 16 : 0 }}>
-              <div style={{ fontSize: 13, fontWeight: 700, color: BRAND.dark, marginBottom: 8 }}>{msg.label}</div>
-              <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-                <MetricPill label="Recipients" value={msg.recipients} status="neutral" />
-                <MetricPill label="Delivered" value={pct(msg.delivered / msg.recipients)} status={msg.delivered / msg.recipients > 0.97 ? "good" : "warning"} benchmark="97%" />
-                <MetricPill label="Open Rate" value={pct(msg.openRate)} status={i === 0 ? openStatus : "neutral"} benchmark={i === 0 ? "28%" : undefined} />
-                <MetricPill label="Click Rate" value={pct(msg.clickRate)} status={i === 0 ? clickStatus : "neutral"} benchmark={i === 0 ? "1.5%" : undefined} />
-                <MetricPill label="Conversions" value={msg.conversions} status={msg.conversions > 0 ? "good" : "neutral"} />
-                <MetricPill label="Revenue" value={currency(msg.revenue)} status={msg.revenue > 0 ? "good" : "neutral"} />
-                {msg.bounceRate > 0.02 && <MetricPill label="Bounce" value={pct(msg.bounceRate)} status="bad" benchmark="<2%" />}
-                {msg.unsubRate > 0.01 && <MetricPill label="Unsub" value={pct(msg.unsubRate)} status="warning" benchmark="<1%" />}
+          {flow.messages.map((msg, i) => {
+            const isSMS = msg.channel === "sms";
+            return (
+              <div key={i} style={{ marginBottom: i < flow.messages.length - 1 ? 20 : 0 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 8 }}>
+                  <div style={{ fontSize: 13, fontWeight: 700, color: BRAND.dark }}>{msg.label}</div>
+                  {isSMS && <div style={{ fontSize: 10, fontWeight: 600, color: BRAND.blue, background: "#EFF6FF", padding: "2px 8px", borderRadius: 4 }}>SMS</div>}
+                </div>
+                <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                  <MetricPill label="Recipients" value={msg.recipients} status="neutral" />
+                  <MetricPill label="Delivered" value={pct(msg.delivered / msg.recipients)} status={msg.delivered / msg.recipients > 0.97 ? "good" : "warning"} benchmark="97%" />
+                  {!isSMS && <MetricPill label="Open Rate" value={pct(msg.openRate)} status={i === 0 ? openStatus : "neutral"} benchmark={i === 0 ? "28%" : undefined} />}
+                  <MetricPill
+                    label={isSMS ? "Response Rate" : "Click Rate"}
+                    value={pct(msg.clickRate)}
+                    status={isSMS ? (msg.clickRate >= 0.05 ? "good" : "warning") : (i === 0 ? clickStatus : "neutral")}
+                    benchmark={isSMS ? "5%" : (i === 0 ? "1.5%" : undefined)}
+                  />
+                  <MetricPill label="Conversions" value={msg.conversions} status={msg.conversions > 0 ? "good" : "neutral"} />
+                  <MetricPill label="Revenue" value={currency(msg.revenue)} status={msg.revenue > 0 ? "good" : "neutral"} />
+                  {msg.bounceRate > 0.02 && <MetricPill label="Bounce" value={pct(msg.bounceRate)} status="bad" benchmark="<2%" />}
+                  {msg.unsubRate > 0.01 && <MetricPill label="Unsub" value={pct(msg.unsubRate)} status="warning" benchmark="<1%" />}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
 
           {flow.diagnostic && <CheckoutDiagnostic data={checkoutDiagnostic} />}
+          {flow.smsLive && <SMSInsight flow={flow} />}
         </div>
       )}
     </div>
@@ -804,18 +1478,7 @@ export default function PasswordGate() {
             tabIndex={-1}
             aria-label={showPassword ? "Hide password" : "Show password"}
           >
-            {showPassword ? (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
-                <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
-                <line x1="1" y1="1" x2="23" y2="23" />
-              </svg>
-            ) : (
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            )}
+            {showPassword ? "🙈" : "👁"}
           </button>
         </div>
         <button
