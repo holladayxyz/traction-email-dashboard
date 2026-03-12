@@ -144,7 +144,6 @@ const WEEKS = {
         statusColor: BRAND.amber,
         trigger: "Checkout Started",
         launchDate: "Feb 10",
-        diagnostic: true,
         messages: [
           { label: "Email 1", recipients: 32, delivered: 32, openRate: 0.3438, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
           { label: "Email 2", recipients: 6, delivered: 6, openRate: 0.1667, clickRate: 0, convRate: 0, conversions: 0, revenue: 0, bounceRate: 0, unsubRate: 0 },
@@ -306,7 +305,6 @@ const WEEKS = {
         statusColor: BRAND.green,
         trigger: "Checkout Started",
         launchDate: "Feb 10",
-        diagnostic: true,
         smsLive: true,
         messages: [
           { label: "Email 1 — Cart Reminder", recipients: 131, delivered: 130, openRate: 0.24138, clickRate: 0.03817, convRate: 0.01527, conversions: 2, revenue: 220.52, bounceRate: 0.00763, unsubRate: 0 },
@@ -432,7 +430,6 @@ const WEEKS = {
         statusColor: BRAND.green,
         trigger: "Checkout Started",
         launchDate: "Feb 10",
-        diagnostic: true,
         smsLive: true,
         messages: [
           { label: "Email 1 — Cart Reminder", recipients: 131, delivered: 130, openRate: 0.24138, clickRate: 0.03817, convRate: 0.01527, conversions: 2, revenue: 220.52, bounceRate: 0.00763, unsubRate: 0 },
@@ -558,7 +555,6 @@ const WEEKS = {
         statusColor: BRAND.green,
         trigger: "Checkout Started",
         launchDate: "Feb 10",
-        diagnostic: true,
         smsLive: true,
         messages: [
           { label: "Email 1 — Cart Reminder", recipients: 131, delivered: 130, openRate: 0.24138, clickRate: 0.03817, convRate: 0.01527, conversions: 2, revenue: 220.52, bounceRate: 0.00763, unsubRate: 0 },
@@ -701,7 +697,6 @@ const WEEKS = {
         statusColor: BRAND.green,
         trigger: "Checkout Started",
         launchDate: "Feb 10",
-        diagnostic: true,
         smsLive: true,
         messages: [
           { label: "Email 1 — Cart Reminder", recipients: 131, delivered: 130, openRate: 0.24138, clickRate: 0.03817, convRate: 0.01527, conversions: 2, revenue: 220.52, bounceRate: 0.00763, unsubRate: 0 },
@@ -898,7 +893,6 @@ const WEEKS = {
         statusColor: BRAND.green,
         trigger: "Checkout Started",
         launchDate: "Feb 10",
-        diagnostic: true,
         smsLive: true,
         messages: [
           { label: "Email 1 — Cart Reminder", recipients: 131, delivered: 130, openRate: 0.24138, clickRate: 0.03817, convRate: 0.01527, conversions: 2, revenue: 220.52, bounceRate: 0.00763, unsubRate: 0 },
@@ -1197,7 +1191,7 @@ function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
   const clickStatus = e1 ? (e1.clickRate >= 0.015 ? "good" : e1.clickRate > 0 ? "warning" : "bad") : "neutral";
 
   return (
-    <div style={{ background: BRAND.white, borderRadius: 12, border: `1px solid ${flow.diagnostic ? BRAND.amber : "#E0E0E0"}`, marginBottom: 16, overflow: "hidden", boxShadow: flow.diagnostic ? `0 0 0 1px ${BRAND.amber}22` : "0 1px 3px rgba(0,0,0,0.06)" }}>
+    <div style={{ background: BRAND.white, borderRadius: 12, border: "1px solid #E0E0E0", marginBottom: 16, overflow: "hidden", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
       <div
         onClick={onToggle}
         style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 20px", cursor: "pointer", background: isExpanded ? BRAND.dark : BRAND.white, transition: "background 0.2s" }}
@@ -1207,7 +1201,6 @@ function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
             {flow.status}
           </div>
           <div style={{ fontSize: 16, fontWeight: 700, color: isExpanded ? BRAND.white : BRAND.dark }}>{flow.name}</div>
-          {flow.diagnostic && <div style={{ fontSize: 10, fontWeight: 600, color: BRAND.amber, background: "#FFF3E0", padding: "2px 8px", borderRadius: 4 }}>DIAGNOSED</div>}
           {flow.smsLive && <div style={{ fontSize: 10, fontWeight: 600, color: BRAND.green, background: "#F0FDF4", padding: "2px 8px", borderRadius: 4, border: "1px solid #BBF7D0" }}>+ SMS</div>}
         </div>
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
@@ -1261,7 +1254,7 @@ function FlowCard({ flow, isExpanded, onToggle, checkoutDiagnostic }) {
               <strong style={{ color: BRAND.amber }}>Status Note:</strong> {flow.note}
             </div>
           )}
-          {flow.diagnostic && <CheckoutDiagnostic data={checkoutDiagnostic} />}
+          {checkoutDiagnostic && <CheckoutDiagnostic data={checkoutDiagnostic} />}
           {flow.smsLive && !flow.note && <SMSInsight flow={flow} />}
         </div>
       )}
