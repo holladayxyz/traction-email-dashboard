@@ -649,14 +649,14 @@ const WEEKS = {
         unsubRate: 0,
         rpr: 0.07,
         aov: 62.42,
-        tag: { label: "Baseline", color: BRAND.gray },
-        insight: "Steady SMS performance — $0.07 RPR is slightly below the SMS channel average of $0.09–$0.11, suggesting this send was a supporting touch rather than a high-intent promo moment. Still adds $2,122 to the week's revenue with minimal effort on a 30K list.",
+        tag: { label: "Consistent", color: BRAND.blue },
+        insight: "Steady SMS performance — $2,122 in revenue and 34 conversions on a non-promotional send to 30K contacts. $0.07 RPR on a supporting touch confirms the SMS channel generates meaningful revenue even outside promo windows. As the list scales past 35K, baseline sends like this will consistently clear $3K+.",
       },
     ],
     insights: [
       { icon: "✅", title: "Transparency content drives the best email clicks", body: "'The 4 Biggest Changes' hit 1.97% CTO — the highest for any full-list email send in the last 5 weeks. Sharing what's changing about the brand creates a reason to click beyond just 'here's a product'. Brand narrative emails belong in the regular rotation alongside promotional sends.", borderColor: BRAND.green },
       { icon: "🔥", title: "St. Paddy's sneak peek is a proven pre-launch format", body: "68 conversions and $5,066 from a teaser send — without the sale even being live yet. Pre-launch emails that create FOMO without a hard CTA consistently drive higher-intent buyers. The St. Paddy's live send should capitalize on this setup with a tight 24-48 hour window.", borderColor: BRAND.green },
-      { icon: "📱", title: "SMS anchors the week with $2,122 on a lean send", body: "The 2/26 SMS added $2,122 at $0.07 RPR — a lighter performance week for SMS but still meaningful supplemental revenue. As the SMS list approaches 35K+, even baseline sends will generate $3–4K consistently. List growth is directly tied to revenue floor for the channel.", borderColor: BRAND.blue },
+      { icon: "📱", title: "SMS delivers $2,122 on a single non-promo send", body: "The 2/26 SMS generated $2,122 and 34 conversions at $0.07 RPR — consistent revenue on a non-promotional touch. As the SMS list approaches 35K+, even routine sends will generate $3–4K consistently. SMS list growth remains directly tied to the channel's revenue floor.", borderColor: BRAND.blue },
       { icon: "📊", title: "Open rates are settling into the 22–24% range", body: "Full-list email opens have ranged 22.9–23.8% over the last two weeks. That's a healthy sustained baseline — above DTC food benchmarks — indicating solid deliverability and subject line consistency. The primary lever to move revenue is improving what happens after the open.", borderColor: BRAND.blue },
     ],
     flows: [
