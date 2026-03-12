@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const BRAND = {
   red: "#C13A28",
@@ -1451,6 +1451,17 @@ function Dashboard() {
   );
 }
 
+/* ── COOKIE HELPERS ── */
+function setCookie(name, value, days) {
+  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+}
+
+function getCookie(name) {
+  const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return match ? match[1] : null;
+}
+
 /* ── PASSWORD GATE ── */
 export default function PasswordGate() {
   const [unlocked, setUnlocked] = useState(false);
@@ -1458,9 +1469,16 @@ export default function PasswordGate() {
   const [error, setError] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  useEffect(() => {
+    if (getCookie("dashboard_auth") === "true") {
+      setUnlocked(true);
+    }
+  }, []);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password.toLowerCase().trim() === "beefcake") {
+      setCookie("dashboard_auth", "true", 90);
       setUnlocked(true);
     } else {
       setError(true);
