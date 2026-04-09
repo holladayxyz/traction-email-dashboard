@@ -2001,22 +2001,50 @@ function Dashboard() {
 
         {/* Week Selector */}
         {weekKeys.length > 1 && (
-          <div style={{ display: "flex", gap: 8, marginTop: 16 }}>
-            {weekKeys.map((key) => (
-              <button
-                key={key}
-                onClick={() => handleWeekChange(key)}
+          <div style={{ marginTop: 16, display: "flex", alignItems: "center", gap: 12 }}>
+            <span style={{ color: "#888", fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: 1 }}>
+              Viewing
+            </span>
+            <div style={{ position: "relative", display: "inline-block" }}>
+              <select
+                value={selectedWeek}
+                onChange={(e) => handleWeekChange(e.target.value)}
                 style={{
-                  padding: "6px 16px", fontSize: 12, fontWeight: 600,
-                  borderRadius: 20, border: "none", cursor: "pointer",
-                  background: selectedWeek === key ? BRAND.red : "#333",
+                  appearance: "none",
+                  WebkitAppearance: "none",
+                  MozAppearance: "none",
+                  background: selectedWeek === weekKeys[weekKeys.length - 1] ? BRAND.red : "#333",
                   color: BRAND.white,
-                  transition: "background 0.2s",
+                  border: selectedWeek === weekKeys[weekKeys.length - 1] ? `1px solid ${BRAND.red}` : "1px solid #555",
+                  borderRadius: 20,
+                  padding: "8px 36px 8px 16px",
+                  fontSize: 13,
+                  fontWeight: 600,
+                  cursor: "pointer",
+                  outline: "none",
+                  minWidth: 240,
                 }}
               >
-                {WEEKS[key].label} <span style={{ fontWeight: 400, opacity: 0.7 }}>({WEEKS[key].dateRange})</span>
-              </button>
-            ))}
+                {weekKeys.slice().reverse().map((key) => (
+                  <option key={key} value={key}>
+                    {WEEKS[key].label} — {WEEKS[key].dateRange}
+                  </option>
+                ))}
+              </select>
+              <span
+                style={{
+                  position: "absolute",
+                  right: 14,
+                  top: "50%",
+                  transform: "translateY(-50%)",
+                  color: selectedWeek === weekKeys[weekKeys.length - 1] ? "rgba(255,255,255,0.7)" : "#888",
+                  fontSize: 14,
+                  pointerEvents: "none",
+                }}
+              >
+                ▾
+              </span>
+            </div>
           </div>
         )}
       </div>
