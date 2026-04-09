@@ -1949,6 +1949,8 @@ function Dashboard() {
   const [selectedWeek, setSelectedWeek] = useState(weekKeys[weekKeys.length - 1]);
   const [campaignExpanded, setCampaignExpanded] = useState({});
   const [flowExpanded, setFlowExpanded] = useState({});
+  const [showRoadmap, setShowRoadmap] = useState(false);
+  const [roadmapClicks, setRoadmapClicks] = useState(0);
 
   const week = WEEKS[selectedWeek];
   const { campaigns, insights, flows, checkoutDiagnostic, roadmap } = week;
@@ -1992,7 +1994,15 @@ function Dashboard() {
               <div style={{ color: "#888", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>Live Flows</div>
               <div style={{ color: BRAND.white, fontSize: 28, fontWeight: 700 }}>{flows.length}</div>
             </div>
-            <div style={{ textAlign: "center" }}>
+            <div
+              style={{ textAlign: "center", cursor: "default", userSelect: "none" }}
+              onClick={() => {
+                const next = roadmapClicks + 1;
+                setRoadmapClicks(next);
+                if (next >= 5) setShowRoadmap((v) => !v);
+                if (next >= 5) setRoadmapClicks(0);
+              }}
+            >
               <div style={{ color: "#888", fontSize: 10, textTransform: "uppercase", letterSpacing: 1 }}>Flow Revenue</div>
               <div style={{ color: totalFlowRevenue > 0 ? BRAND.green : "#666", fontSize: 28, fontWeight: 700 }}>{currency(totalFlowRevenue)}</div>
             </div>
@@ -2103,16 +2113,18 @@ function Dashboard() {
           <FlowCard key={i} flow={flow} isExpanded={flowExpanded[i]} onToggle={() => toggleFlow(i)} checkoutDiagnostic={checkoutDiagnostic} />
         ))}
 
-        {/* ── SECTION 3: ROADMAP ── */}
-        <div style={{ marginTop: 40 }}>
-          <SectionHeader title="Roadmap" subtitle="What we're working on and what's coming next, in priority order" />
-        </div>
+        {/* ── SECTION 3: ROADMAP (hidden — click Flow Revenue 5x to toggle) ── */}
+        {showRoadmap && (<>
+          <div style={{ marginTop: 40 }}>
+            <SectionHeader title="Roadmap" subtitle="What we're working on and what's coming next, in priority order" />
+          </div>
 
-        <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
-          <RoadmapSection title="Working On Now" subtitle="Active this sprint" items={roadmap.now} borderColor={BRAND.red} />
-          <RoadmapSection title="Up Next" subtitle="Queued and ready to go" items={roadmap.next} borderColor={BRAND.amber} />
-          <RoadmapSection title="On the Horizon" subtitle="Coming once the foundation is solid" items={roadmap.later} borderColor={BRAND.blue} />
-        </div>
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+            <RoadmapSection title="Working On Now" subtitle="Active this sprint" items={roadmap.now} borderColor={BRAND.red} />
+            <RoadmapSection title="Up Next" subtitle="Queued and ready to go" items={roadmap.next} borderColor={BRAND.amber} />
+            <RoadmapSection title="On the Horizon" subtitle="Coming once the foundation is solid" items={roadmap.later} borderColor={BRAND.blue} />
+          </div>
+        </>)}
       </div>
     </div>
   );
